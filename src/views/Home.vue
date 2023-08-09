@@ -131,8 +131,8 @@ watch(smallScreen, (x) => {
       <div class="fgos-mdk-code">
         <div class="fgos-title ">ФГОС СПО {{ content.fgos.code }}</div>
         <div class="fgos-name">{{ content.fgos.name }}</div>
-        <div class="mdk-title">МДКн {{ content.mdk.code }}</div>
-        <div class="mdk-name">{{ content.mdk.name }}</div>
+        <div class="mdk-title">ПМ {{ content.pm.code }}</div>
+        <div class="mdk-name">{{ content.pm.name }}</div>
         <div class="mdk-title">МДКн {{ content.mdk.code }}</div>
         <div class="mdk-name">{{ content.mdk.name }}</div>
       </div>
