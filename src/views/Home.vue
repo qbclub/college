@@ -1,12 +1,30 @@
 <script setup>
+import { ref } from 'vue'
+import ContentInfo from '../components/ContentInfo.vue'
+import Advices from '../components/Advices.vue'
+import KeyWords from '../components/KeyWords.vue'
+import { useRouter } from "vue-router"
+
+let router = useRouter()
+
+let dialog = ref(false)
+let dialogContent = ref('')
+
+let getDialog = (content) => {
+  dialog.value = true
+  dialogContent.value = content
+}
+let routeTo = (path) => {
+  router.push(path)
+}
 
 </script>
 
 <template>
   <div class="top-block">
     <div class="top-left">
-      <div class="top-block-left">Информация <br> о контенте</div>
-      <div class="top-block-left"> Ключевые <br> слова</div>
+      <div class="top-block-left" @click="getDialog('contentInfo')">Информация <br> о контенте</div>
+      <div class="top-block-left" @click="getDialog('keyWords')"> Ключевые <br> слова</div>
     </div>
 
     <div class="top-block-right">
@@ -37,8 +55,8 @@
               <div class="description">Динамическая инфографика</div>
             </div>
             <div class="description-buttons">
-              <img src="../assets/icons/advice.webp">
-              <img src="../assets/icons/play.webp">
+              <img src="../assets/icons/advice.webp" @click="getDialog('advices')">
+              <img src="../assets/icons/play.webp" @click="routeTo('/content')">
             </div>
           </div>
 
@@ -52,7 +70,7 @@
           <div class="nav-button-title use"> Применение изученного материала</div>
           <div class="nav-button-icon use">
             <div class="icon-wrapper">
-              <img src="../assets/icons/use.webp">
+              <img src="../assets/icons/use.webp" >
             </div>
           </div>
           <div class="nav-button-description ">
@@ -61,8 +79,8 @@
               <div class="description">Виртуальный тренажер</div>
             </div>
             <div class="description-buttons">
-              <img src="../assets/icons/advice.webp">
-              <img src="../assets/icons/play.webp">
+              <img src="../assets/icons/advice.webp" @click="getDialog('advices')">
+              <img src="../assets/icons/play.webp" @click="routeTo('/quiz')">
             </div>
           </div>
         </div>
@@ -83,8 +101,8 @@
               <div class="description">Интерактивный тренажер по выполнению заданий</div>
             </div>
             <div class="description-buttons">
-              <img src="../assets/icons/advice.webp">
-              <img src="../assets/icons/play.webp">
+              <img src="../assets/icons/advice.webp" @click="getDialog('advices')">
+              <img src="../assets/icons/play.webp" @click="routeTo('/test')">
             </div>
           </div>
         </div>
@@ -102,10 +120,27 @@
         <div class="fgos-name">Технология продуктов питания из растительного сырья</div>
         <div class="mdk-title">МДКн 01.01</div>
         <div class="mdk-name">Техническое обеспечение процессов хранения и переработки зерна и семян</div>
+        <div class="mdk-title">МДКн 01.01</div>
+        <div class="mdk-name">Техническое обеспечение процессов хранения и переработки зерна и семян</div>
       </div>
     </div>
 
   </div>
+
+  <v-row justify="center">
+    <v-dialog v-model="dialog" width="800" height="500">
+
+      <v-card>
+        <div class="pa-1 d-flex justify-end">
+          <v-btn @click="dialog = false" icon="mdi-close" size="small" color="#456DB1" style="color: white;">
+          </v-btn>
+        </div>
+        <ContentInfo v-if="dialogContent == 'contentInfo'" />
+        <KeyWords v-if="dialogContent == 'keyWords'" />
+        <Advices v-if="dialogContent == 'advices'" />
+      </v-card>
+    </v-dialog>
+  </v-row>
 </template>
 <style lang="scss">
 .top-block {
@@ -249,8 +284,9 @@
             align-items: center;
 
             box-shadow: inset 3px -5px 3px 0 rgba(0, 0, 0, .2);
-            img{
-              width:60%;
+
+            img {
+              width: 60%;
             }
           }
         }
@@ -276,7 +312,7 @@
 
           .description-buttons {
             width: 50px;
-           
+
             font-size: 40px;
             display: flex;
             flex-direction: column;

@@ -7,9 +7,32 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: () => import('../views/Home.vue')
-    
+
     },
-  
+    {
+      path: '/content',
+      name: 'ContentPage',
+      component: () => import('../views/ContentPage.vue'),
+      children: [
+        {
+          path: '',
+          name: 'Video',
+          component: () => import('@/components/Video.vue'),
+        },
+        {
+          path: '/test',
+          name: 'Test',
+          component: () => import('@/components/Test.vue'),
+        },
+        {
+          path: '/quiz',
+          name: 'Quiz',
+          component: () => import('@/components/Quiz.vue')
+        },
+      ]
+
+    },
+
   ]
 })
 
