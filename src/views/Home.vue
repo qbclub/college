@@ -1,11 +1,17 @@
 <script setup>
-import { ref } from 'vue'
+import { ref,watch } from 'vue'
 import content from "../db/1301100102.js"
 import ContentInfo from '../components/ContentInfo.vue'
 import Advices from '../components/Advices.vue'
 import KeyWords from '../components/KeyWords.vue'
+import SmallScreen from '../components/SmallScreen.vue'
 import { useRouter } from "vue-router"
+import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 
+
+const breakpoints = useBreakpoints(breakpointsTailwind)
+
+const smallScreen = breakpoints.smaller('lg') // only smaller than lg
 let router = useRouter()
 
 let dialog = ref(false)
@@ -18,6 +24,13 @@ let getDialog = (content) => {
 let routeTo = (path) => {
   router.push(path)
 }
+
+watch(smallScreen, (x) => {
+  if(x){
+  dialog.value = true
+  dialogContent.value = "smallScreen"
+  }
+})
 
 </script>
 
@@ -138,6 +151,7 @@ let routeTo = (path) => {
         <ContentInfo v-if="dialogContent == 'contentInfo'" />
         <KeyWords v-if="dialogContent == 'keyWords'" />
         <Advices v-if="dialogContent == 'advices'" />
+        <SmallScreen v-if="dialogContent == 'smallScreen'" @close="dialog=false"/>
       </v-card>
     </v-dialog>
   </v-row>
@@ -293,7 +307,7 @@ let routeTo = (path) => {
 
         .nav-button-description {
           display: flex;
-          font-size: 22px;
+          font-size: 20px;
           flex-shrink: 100;
 
           .description-text {
@@ -305,6 +319,7 @@ let routeTo = (path) => {
 
             .description {
               color: rgba(0, 0, 0, .3);
+              font-size: 18px;
             }
 
 
@@ -382,14 +397,13 @@ let routeTo = (path) => {
     text-transform: uppercase;
     font-size: 30px;
     color: rgba(0, 0, 0, 0.6);
-    margin: 20px 0;
+    margin: 10px 0;
 
     &:after {
       content: "";
       display: block;
       width: 40%;
       height: 4px;
-      margin: 10px 0;
       background-color: rgba(71, 58, 83, .85);
 
     }
