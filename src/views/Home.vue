@@ -28,7 +28,7 @@
           <div class="nav-button-title learning"> Освоение нового материала</div>
           <div class="nav-button-icon learning">
             <div class="icon-wrapper">
-              <img src="../assets/icons/learning.png">
+              <img src="../assets/icons/book.webp">
             </div>
           </div>
           <div class="nav-button-description ">
@@ -37,8 +37,8 @@
               <div class="description">Динамическая инфографика</div>
             </div>
             <div class="description-buttons">
-              <span class="mdi mdi-file-outline"></span>
-              <span class="mdi mdi-play-circle-outline"></span>
+              <img src="../assets/icons/advice.webp">
+              <img src="../assets/icons/play.webp">
             </div>
           </div>
 
@@ -52,7 +52,7 @@
           <div class="nav-button-title use"> Применение изученного материала</div>
           <div class="nav-button-icon use">
             <div class="icon-wrapper">
-              <img src="../assets/icons/use.png">
+              <img src="../assets/icons/use.webp">
             </div>
           </div>
           <div class="nav-button-description ">
@@ -61,8 +61,8 @@
               <div class="description">Виртуальный тренажер</div>
             </div>
             <div class="description-buttons">
-              <span class="mdi mdi-file-outline"></span>
-              <span class="mdi mdi-play-circle-outline"></span>
+              <img src="../assets/icons/advice.webp">
+              <img src="../assets/icons/play.webp">
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@
           <div class="nav-button-title test"> Диагностика приобретенных знаний, умений, навыков</div>
           <div class="nav-button-icon test">
             <div class="icon-wrapper">
-              <img src="../assets/icons/test.png">
+              <img src="../assets/icons/test.webp">
             </div>
           </div>
           <div class="nav-button-description ">
@@ -83,8 +83,8 @@
               <div class="description">Интерактивный тренажер по выполнению заданий</div>
             </div>
             <div class="description-buttons">
-              <span class="mdi mdi-file-outline"></span>
-              <span class="mdi mdi-play-circle-outline"></span>
+              <img src="../assets/icons/advice.webp">
+              <img src="../assets/icons/play.webp">
             </div>
           </div>
         </div>
@@ -95,7 +95,7 @@
     </div>
     <div class="main-right">
       <div class="logo-container">
-        <img src="../assets/icons/logo.png">
+        <img src="../assets/icons/logo.webp">
       </div>
       <div class="fgos-mdk-code">
         <div class="fgos-title ">ФГОС СПО 19.02.11</div>
@@ -249,6 +249,9 @@
             align-items: center;
 
             box-shadow: inset 3px -5px 3px 0 rgba(0, 0, 0, .2);
+            img{
+              width:60%;
+            }
           }
         }
 
@@ -273,6 +276,7 @@
 
           .description-buttons {
             width: 50px;
+           
             font-size: 40px;
             display: flex;
             flex-direction: column;
@@ -280,7 +284,8 @@
             align-items: center;
             color: rgba(0, 0, 0, 0.6);
 
-            span {
+            img {
+              width: 80%;
               cursor: pointer;
             }
 
