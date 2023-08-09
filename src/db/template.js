@@ -10,6 +10,9 @@ export default {
     },
     video:"",
     test:"",
+    images:[
+        "",""
+    ],
     contentinf:"",
     keywords:[
     ]
