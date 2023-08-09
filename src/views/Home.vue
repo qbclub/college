@@ -121,7 +121,7 @@
 
     .top-block-left {
       cursor: pointer;
-      width: 130px;
+      width: 140px;
       height: 50px;
       border-left: 5px solid #473a53;
       font-size: 20px;
