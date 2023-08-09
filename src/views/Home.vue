@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import content from "../db/1301100102.js"
 import ContentInfo from '../components/ContentInfo.vue'
 import Advices from '../components/Advices.vue'
 import KeyWords from '../components/KeyWords.vue'
@@ -33,8 +34,7 @@ let routeTo = (path) => {
   </div>
   <div class="theme">
     <div class="theme-right">Тема</div>
-    <div class="theme-center">Теоретические основы технологических процессов в мукомольном, крупяном и комбикормовом
-      производствах</div>
+    <div class="theme-center">{{ content.theme }}</div>
     <div class="theme-left">Спо</div>
 
   </div>
@@ -51,7 +51,7 @@ let routeTo = (path) => {
           </div>
           <div class="nav-button-description ">
             <div class="description-text">
-              <div class="description-title">Шелушение зерна, сортирование продуктов шелушения зерна</div>
+              <div class="description-title">{{content.theme}}</div>
               <div class="description">Динамическая инфографика</div>
             </div>
             <div class="description-buttons">
@@ -75,7 +75,7 @@ let routeTo = (path) => {
           </div>
           <div class="nav-button-description ">
             <div class="description-text">
-              <div class="description-title">Оценка технологической эффективности процесса шелушения</div>
+              <div class="description-title">{{content.theme}}</div>
               <div class="description">Виртуальный тренажер</div>
             </div>
             <div class="description-buttons">
@@ -97,7 +97,7 @@ let routeTo = (path) => {
           </div>
           <div class="nav-button-description ">
             <div class="description-text">
-              <div class="description-title">Шелушение зерна, сортирование продуктов шелушения зерна</div>
+              <div class="description-title">{{content.theme}}</div>
               <div class="description">Интерактивный тренажер по выполнению заданий</div>
             </div>
             <div class="description-buttons">
@@ -116,12 +116,12 @@ let routeTo = (path) => {
         <img src="../assets/icons/logo.webp">
       </div>
       <div class="fgos-mdk-code">
-        <div class="fgos-title ">ФГОС СПО 19.02.11</div>
-        <div class="fgos-name">Технология продуктов питания из растительного сырья</div>
-        <div class="mdk-title">МДКн 01.01</div>
-        <div class="mdk-name">Техническое обеспечение процессов хранения и переработки зерна и семян</div>
-        <div class="mdk-title">МДКн 01.01</div>
-        <div class="mdk-name">Техническое обеспечение процессов хранения и переработки зерна и семян</div>
+        <div class="fgos-title ">ФГОС СПО {{ content.fgos.code }}</div>
+        <div class="fgos-name">{{ content.fgos.name }}</div>
+        <div class="mdk-title">МДКн {{ content.mdk.code }}</div>
+        <div class="mdk-name">{{ content.mdk.name }}</div>
+        <div class="mdk-title">МДКн {{ content.mdk.code }}</div>
+        <div class="mdk-name">{{ content.mdk.name }}</div>
       </div>
     </div>
 
