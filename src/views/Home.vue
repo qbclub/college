@@ -24,6 +24,7 @@ let getDialog = (content) => {
 let routeTo = (path) => {
   router.push(path)
 }
+
 watch(smallScreen, (x) => {
   if(x){
   dialog.value = true
@@ -150,7 +151,7 @@ watch(smallScreen, (x) => {
         <ContentInfo v-if="dialogContent == 'contentInfo'" />
         <KeyWords v-if="dialogContent == 'keyWords'" />
         <Advices v-if="dialogContent == 'advices'" />
-        <SmallScreen v-if="dialogContent == 'smallScreen'" />
+        <SmallScreen v-if="dialogContent == 'smallScreen'" @close="dialog=false"/>
       </v-card>
     </v-dialog>
   </v-row>

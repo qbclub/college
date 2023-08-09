@@ -1,9 +1,11 @@
-<script setup></script>
+<script setup>
+let emit = defineEmits(['close'])
+</script>
 <template>
-  <v-card-text> ошибка </v-card-text>
+  <v-card-text>
   <v-row>
+    <v-col cols="12">
     <p>Экран слишком мал</p>
-    <p>Рабочая область слишком мала.</p>
     <p>
       Контент и интерактивные элементы будут работать, но некоторые части страницы могут
       быть недоступны.
@@ -13,6 +15,11 @@
       рабочую область или используйте устройство с минимальным разрешением 980x500
       пикселей.
     </p>
-    <v-btn>Понятно</v-btn>
+    </v-col>
+    <v-col cols="12" style="display: flex; justify-content: center; align-items: center;">
+    
+    <v-btn @click="emit('close');">Понятно</v-btn>
+    </v-col>
   </v-row>
+</v-card-text>
 </template>
