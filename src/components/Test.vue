@@ -126,7 +126,7 @@ questions: [
 				>
 					<div 
 						@click="select(index)"
-						:class="`d-flex flex-row align-stretch rounded-lg ${answer.selected ? 'bg-blue-lighten-4' : 'bg-white'}`"
+						:class="`d-flex flex-row align-stretch rounded-lg ${current_question.entered ? (answer.right ? 'bg-green-lighten-4' : 'bg-red-lighten-4') : answer.selected ? 'bg-blue-lighten-4' : 'bg-white'}`"
 						style="cursor: pointer;"
 					>
 						<div class="pa-4">
@@ -154,6 +154,7 @@ questions: [
 				<v-btn
 					v-if="current_step > 1"
 					@click="back()"
+          :ripple="false"
 				>
 					На шаг назад
 				</v-btn>
@@ -163,6 +164,7 @@ questions: [
 					@click="answer()"
 					:disabled="current_question.answers.every(item => !item.selected)"
 					class="ml-6"
+          :ripple="false"
 				>
 					Ответить
 				</v-btn>
@@ -171,6 +173,7 @@ questions: [
 					v-if="current_question && current_question.entered"
 					@click="increaseStep()"
 					class="ml-6"
+          :ripple="false"
 				>
 					Дальше
 				</v-btn>
@@ -183,8 +186,7 @@ questions: [
 .container {
 	background-attachment: fixed;
 	background-color: rgba(241,242,242,.5);
-	background-image: -webkit-linear-gradient(#fafafa 0,#fafafa 130px,rgba(68,28,80,.1) 150px,#fff 100%);
-	background-image: linear-gradient(#fafafa 0,#fafafa 130px,rgba(68,28,80,.1) 150px,#fff 100%);
+	background-image: linear-gradient(#fafafa 0,#fafafa 130px,rgba(68,28,80,.1) 160px,#fff 100%);
 	box-shadow: 0 0 0.11rem 0 rgb(0 0 0 / 30%);
 
 	display: flex;
