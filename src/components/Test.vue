@@ -1,38 +1,66 @@
 <script setup>
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, watch } from 'vue'
+import Answer from './Answer.vue';
+import Result from './Result.vue';
 
 let test = reactive({
 	title: 'Общие сведения о переработке зерна на мукомольном и крупяном предприятиях',
 	questions: [
 		{
 			question: 'Выберите верные утверждения',
-			type: 'multi',
-			entered: false,
+			type: 'multi', // 'once' | 'multi'
 			answers: [
 				{
 					text: 'Комбикормовая промышленность появилась в СССР в 1970-е годы.',
 					right: false,
-					selected: false,
 				},
 				{
 					text: 'В 1950—1960-е годы контроль и управление отдельными технологическими операциями были автоматизированы. ',
 					right: true,
-					selected: false
 				},
 				{
 					text: 'В 1962 г. была разработана первая типовая схема подготовки и размола зерна.',
 					right: false,
-					selected: false
 				},
 				{
 					text: 'Принципы организации и ведения технологического процесса производства муки были заложены в конце XIX — начале XX века.',
 					right: true,
-					selected: false
 				},
 			]
 		},
+		{
+			question: 'Закончите предложение: «Сепарирование продуктов размола зерна по размерам при мукомольном производстве осуществляется в …».',
+			type: 'once',
+			answers: [
+				{
+					text: 'воздушно-ситовых сепараторах',
+					right: false
+				},
+				{
+					text: 'рассевах',
+					right: true
+				},
+				{
+					text: 'аспираторах',
+					right: false
+				},
+				{
+					text: 'дуаспираторах',
+					right: false
+				},
+			]
+		}
 	]
 })
+
+// Добавляем тех переменные
+for (let question of test.questions) {
+	question.entered = false
+	
+	for (let answer of question.answers) {
+		answer.selected = false
+	}
+}
 
 let current_step = ref(1)
 let current_question = computed(() => test.questions[current_step.value-1])
@@ -40,8 +68,13 @@ let current_question = computed(() => test.questions[current_step.value-1])
 let steps = computed(() => test.questions.length)
 let done = computed(() => current_step.value > steps.value)
 
+let right_entered_amount = ref(0)
+let entered_amount = ref(0)
 
-function answer() {
+
+/********** Methods **********/
+
+function answerQuestion() {
 	test.questions[current_step.value-1].entered = true
 }
 
@@ -56,34 +89,54 @@ function back() {
 }
 
 function select(index) {
+	// Если radio и что-то введено, значит очищаем что введено
 	if (current_question.value.type === 'once' && current_question.value.answers.some(item => item.selected))
+		test.questions[current_step.value-1].answers.forEach(answer => answer.selected = false)
+
+	if (current_question.value.entered)
 		return
 
 	let answer = test.questions[current_step.value-1].answers[index]
 	answer.selected = !answer.selected
 }
 
+// Обновляем количество введенных и правильно введенных
+function compareRightAnswers(questions) {
+	right_entered_amount.value = 0
+	entered_amount.value = 0
 
-let delta = 0
+	// Считаем количество всех введенных ответов
+	questions.forEach(question => {
+		question.answers.forEach(answer => {
+			if (answer.selected)
+				entered_amount.value++
+		})
+	})
+
+	// Считаем количество правильно введенных ответов
+	questions.forEach(question => {
+		right_entered_amount.value += question.answers.filter(answer => answer.selected && answer.right).length
+	})
+}
+watch(test.questions, questions => compareRightAnswers(questions))
+
+
 let timer = ref('00:00')
-setInterval(() => {
-	delta += 1000
-	timer.value = Math.floor(delta/60000)+':'+Math.ceil(delta/1000 - Math.ceil(delta/1000))
-}, 1000)
+let seconds = 0
+let minutes = 0
 
-/*
-title: string,
-questions: [
-	{
-		question: string,
-		type: 'once' | 'multi'
-		answers: {
-			text: string
-			right: boolean
-		}[]
-	}
-]
-*/
+function updateTime() {
+  seconds++;
+  if (seconds === 60) {
+    minutes++;
+    seconds = 0;
+  }
+  timer.value = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+}
+let interval = setInterval(updateTime, 1000)
+
+if (done.value)
+	clearInterval(interval)
 </script>
 
 <template>
@@ -114,28 +167,31 @@ questions: [
 		<div 
 			v-if="!done"
 			class="h-100 mt-4" 
-			style="width: 80%;"	
+			style="width: 85%;"	
 		>
 			<v-row 
-				class="ma-auto flex-column"
+				class="flex-column"
 				style="margin: auto;"
 			>
 				<v-col
 					v-for="(answer, index) in current_question.answers"
 					:key="index"
 				>
-					<div 
+					<Answer 
 						@click="select(index)"
-						:class="`d-flex flex-row align-stretch rounded-lg ${current_question.entered ? (answer.right ? 'bg-green-lighten-4' : 'bg-red-lighten-4') : answer.selected ? 'bg-blue-lighten-4' : 'bg-white'}`"
-						style="cursor: pointer;"
-					>
-						<div class="pa-4">
-							{{ answer.text }}
-						</div>
-					</div>
+						:answer="answer"
+						:entered="current_question.entered"
+					/>
 				</v-col>
 			</v-row>
 		</div>
+
+		<Result 
+			v-if="done"
+			:right="right_entered_amount"
+			:answersAmount="entered_amount"
+			:time="timer"
+		/>
 
 		<v-spacer />
 
@@ -161,7 +217,7 @@ questions: [
 
 				<v-btn 
 					v-if="!done && !current_question.entered"
-					@click="answer()"
+					@click="answerQuestion()"
 					:disabled="current_question.answers.every(item => !item.selected)"
 					class="ml-6"
           :ripple="false"
