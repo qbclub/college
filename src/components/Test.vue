@@ -135,8 +135,10 @@ function updateTime() {
 }
 let interval = setInterval(updateTime, 1000)
 
-if (done.value)
-	clearInterval(interval)
+watch(done, (value) => {
+  if (value)
+	  clearInterval(interval)
+})
 </script>
 
 <template>
