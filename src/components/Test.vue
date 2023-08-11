@@ -1,9 +1,15 @@
 <script setup>
 import { ref, reactive, computed, watch } from 'vue'
+import { useRoute } from 'vue-router';
+import { useDB } from '../stores/db';
 import Answer from './Answer.vue';
 import Result from './Result.vue';
 
-let test = reactive({
+let code = useRoute().query.code
+const content = await useDB().getFromCode(code)
+
+let test = reactive(content.test)
+/*{
 	title: 'Общие сведения о переработке зерна на мукомольном и крупяном предприятиях',
 	questions: [
 		{
@@ -51,7 +57,7 @@ let test = reactive({
 			]
 		}
 	]
-})
+})*/
 
 // Добавляем тех переменные
 for (let question of test.questions) {
@@ -142,7 +148,7 @@ watch(done, (value) => {
   <div class="container">
 		<div class="w-100 d-flex flex-column">
 			<div class="w-100 font-weight-light pt-4 pr-8 pb-4 pl-8 rounded-lg bg-red-lighten-4 text-red-darken-4">
-				{{ test.title }}
+				{{ content.theme }}
 			</div>
 	
 			<div 
