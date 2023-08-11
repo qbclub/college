@@ -175,7 +175,6 @@ watch(done, (value) => {
 				<v-col cols="12">
 					<img 
 						:src="current_question.image" 
-						style="max-height: 30vh; max-width: 90%;"
 					/>
 				</v-col>
 
@@ -190,6 +189,7 @@ watch(done, (value) => {
 								@click="select(index)"
 								:answer="answer"
 								:entered="current_question.entered"
+								style="max-height: 35vh; max-width: 90%;"
 							/>
 						</v-col>
 					</v-row>
