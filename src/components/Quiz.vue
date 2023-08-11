@@ -183,7 +183,7 @@ watch(done, (value) => {
 						<v-fade-transition leave-absolute>
 							<img 
 								:src="current_question.image" 
-								style="max-height: 35vh; max-width: 90%;"
+								style="max-height: 40vh; max-width: 90%;"
 							/>
 						</v-fade-transition>
 					</v-col>
