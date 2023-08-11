@@ -105,12 +105,9 @@ function compareRightAnswers(questions) {
 	right_entered_amount.value = 0
 	entered_amount.value = 0
 
-	// Считаем количество всех введенных ответов
+	// Считаем количество введённых или правильных ответов
 	questions.forEach(question => {
-		question.answers.forEach(answer => {
-			if (answer.selected)
-				entered_amount.value++
-		})
+		entered_amount.value += question.answers.filter(answer => answer.selected || answer.right).length
 	})
 
 	// Считаем количество правильно введенных ответов
@@ -166,34 +163,40 @@ watch(done, (value) => {
 			</div>
 		</div>
 
-		<div 
-			v-if="!done"
-			class="h-100 mt-4 pb-4" 
-			style="width: 85%;"	
-		>
-			<v-row 
-				class="flex-column"
-				style="margin: auto;"
+		<v-fade-transition leave-absolute hide-on-leave>
+			<div 
+				v-if="!done"
+				class="h-100 mt-4 pb-4" 
+				style="width: 85%;"	
 			>
-				<v-col
-					v-for="(answer, index) in current_question.answers"
-					:key="index"
+				<v-row 
+					class="flex-column"
+					style="margin: auto;"
 				>
-					<Answer 
-						@click="select(index)"
-						:answer="answer"
-						:entered="current_question.entered"
-					/>
-				</v-col>
-			</v-row>
-		</div>
+					<v-fade-transition group>
+						<v-col
+							v-for="(answer, index) in current_question.answers"
+							:key="index"
+						>
+							<Answer 
+								@click="select(index)"
+								:answer="answer"
+								:entered="current_question.entered"
+							/>
+						</v-col>
+					</v-fade-transition>
+				</v-row>
+			</div>
+		</v-fade-transition>
 
-		<Result 
-			v-if="done"
-			:right="right_entered_amount"
-			:answersAmount="entered_amount"
-			:time="timer"
-		/>
+		<v-fade-transition leave-absolute hide-on-leave>
+			<Result 
+				v-if="done"
+				:right="right_entered_amount"
+				:answersAmount="entered_amount"
+				:time="timer"
+			/>
+		</v-fade-transition>
 
 		<v-spacer />
 
