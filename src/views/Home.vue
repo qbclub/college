@@ -8,7 +8,7 @@ import { useRoute, useRouter } from "vue-router"
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import { useDB } from '../stores/db'
 
-let code = useRoute().query.code ?? 1301100102
+let code = useRoute().query.code
 const content = await useDB().getFromCode(code)
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
