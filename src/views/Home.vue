@@ -1,6 +1,5 @@
 <script setup>
 import { ref,watch } from 'vue'
-import content from "../db/1301100102.js"
 import ContentInfo from '../components/ContentInfo.vue'
 import Advices from '../components/Advices.vue'
 import KeyWords from '../components/KeyWords.vue'
@@ -152,7 +151,7 @@ watch(smallScreen, (x) => {
           </v-btn>
         </div>
         <ContentInfo v-if="dialogContent == 'contentInfo'" />
-        <KeyWords v-if="dialogContent == 'keyWords'" />
+        <KeyWords v-if="dialogContent == 'keyWords'" :code="code" />
         <Advices v-if="dialogContent == 'advices'" />
         <SmallScreen v-if="dialogContent == 'smallScreen'" @close="dialog=false"/>
       </v-card>
