@@ -102,12 +102,9 @@ function compareRightAnswers(questions) {
 	right_entered_amount.value = 0
 	entered_amount.value = 0
 
-	// Считаем количество всех введенных ответов
+	// Считаем количество введённых или правильных ответов
 	questions.forEach(question => {
-		question.answers.forEach(answer => {
-			if (answer.selected)
-				entered_amount.value++
-		})
+		entered_amount.value += question.answers.filter(answer => answer.selected || answer.right).length
 	})
 
 	// Считаем количество правильно введенных ответов
