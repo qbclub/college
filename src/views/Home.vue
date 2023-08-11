@@ -5,9 +5,12 @@ import ContentInfo from '../components/ContentInfo.vue'
 import Advices from '../components/Advices.vue'
 import KeyWords from '../components/KeyWords.vue'
 import SmallScreen from '../components/SmallScreen.vue'
-import { useRouter } from "vue-router"
+import { useRoute, useRouter } from "vue-router"
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
+import { useDB } from '../stores/db'
 
+let code = useRoute().query.code ?? 1301100102
+const content = await useDB().getFromCode(code)
 
 const breakpoints = useBreakpoints(breakpointsTailwind)
 
