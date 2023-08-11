@@ -147,7 +147,10 @@ watch(done, (value) => {
 <template>
   <div class="container">
 		<div class="w-100 d-flex flex-column">
-			<div class="w-100 font-weight-light pt-4 pr-8 pb-4 pl-8 rounded-lg bg-red-lighten-4 text-red-darken-4">
+			<div 
+				class="w-100 font-weight-light pt-4 pr-8 pb-4 pl-8 rounded-lg"
+				style="color: #483a53; background: #e6dcee;"
+			>
 				{{ content.theme }}
 			</div>
 	
