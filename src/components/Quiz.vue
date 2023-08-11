@@ -163,46 +163,54 @@ watch(done, (value) => {
 			</div>
 		</div>
 
-		<div 
-			v-if="!done"
-			class="h-100 mt-4 pb-4" 
-			style="width: 85%;"	
-		>
-			<v-row 
-				class="flex-column"
-				style="margin: auto;"
+		<v-fade-transition leave-absolute hide-on-leave>
+			<div 
+				v-if="!done"
+				class="h-100 mt-4 pb-4" 
+				style="width: 85%;"	
 			>
-				<v-col cols="12">
-					<img 
-						:src="current_question.image" 
-					/>
-				</v-col>
-
-				<v-col>
-					<v-row>
-						<v-col
-							v-for="(answer, index) in current_question.answers"
-							:key="index"
-							cols="12" lg="6"
-						>
-							<Answer 
-								@click="select(index)"
-								:answer="answer"
-								:entered="current_question.entered"
+				<v-row 
+					class="flex-column"
+					style="margin: auto;"
+				>
+					<v-col cols="12" class="d-flex justify-center">
+						<v-fade-transition leave-absolute>
+							<img 
+								:src="current_question.image" 
 								style="max-height: 35vh; max-width: 90%;"
 							/>
-						</v-col>
-					</v-row>
-				</v-col>
-			</v-row>
-		</div>
+						</v-fade-transition>
+					</v-col>
+	
+					<v-col>
+						<v-row>
+							<v-fade-transition group>
+								<v-col
+									v-for="(answer, index) in current_question.answers"
+									:key="index"
+									cols="12" lg="6"
+								>
+									<Answer 
+										@click="select(index)"
+										:answer="answer"
+										:entered="current_question.entered"
+									/>
+								</v-col>
+							</v-fade-transition>
+						</v-row>
+					</v-col>
+				</v-row>
+			</div>
+		</v-fade-transition>
 
-		<Result 
-			v-if="done"
-			:right="right_entered_amount"
-			:answersAmount="entered_amount"
-			:time="timer"
-		/>
+		<v-fade-transition leave-absolute hide-on-leave>
+			<Result 
+				v-if="done"
+				:right="right_entered_amount"
+				:answersAmount="entered_amount"
+				:time="timer"
+			/>
+		</v-fade-transition>
 
 		<v-spacer />
 
