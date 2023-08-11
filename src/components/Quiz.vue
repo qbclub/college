@@ -10,7 +10,6 @@ const content = await useDB().getFromCode(code)
 
 let test = reactive(content.quiz)
 /*{
-	title: 'Общие сведения о переработке зерна на мукомольном и крупяном предприятиях',
 	questions: [
 		{
 			question: 'Этот инструмент называется ...',
