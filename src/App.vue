@@ -5,7 +5,7 @@ let router = useRouter()
 let route = useRoute()
 
 if (!route.query.code)
-  router.replace({ query: { code: 1301100102 } })
+  router.replace({ query: { code: 130110010102 } })
 </script>
 
 <template>
