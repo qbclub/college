@@ -166,7 +166,7 @@ if (done.value)
 
 		<div 
 			v-if="!done"
-			class="h-100 mt-4" 
+			class="h-100 mt-4 pb-4" 
 			style="width: 85%;"	
 		>
 			<v-row 
@@ -195,7 +195,10 @@ if (done.value)
 
 		<v-spacer />
 
-		<div class="w-100 pa-4 d-flex flex-column" style="background: #5a335a; position: relative;">
+		<div 
+			class="w-100 pa-4 d-flex flex-row justify-center align-center flex-wrap" 
+			style="background: #5a335a; position: sticky; bottom: 8px; column-gap: 30px; row-gap: 8px;"
+		>
 			<div 
 				class="text-white"
 				style="font-size: 20px; font-weight: 500;"
@@ -203,37 +206,30 @@ if (done.value)
 				{{ timer }}
 			</div>
 
-			<div 
-				class="d-flex flex-row" 
-				style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);"
+			<v-btn
+				v-if="current_step > 1"
+				@click="back()"
+				:ripple="false"
 			>
-				<v-btn
-					v-if="current_step > 1"
-					@click="back()"
-          :ripple="false"
-				>
-					На шаг назад
-				</v-btn>
+				На шаг назад
+			</v-btn>
 
-				<v-btn 
-					v-if="!done && !current_question.entered"
-					@click="answerQuestion()"
-					:disabled="current_question.answers.every(item => !item.selected)"
-					class="ml-6"
-          :ripple="false"
-				>
-					Ответить
-				</v-btn>
+			<v-btn 
+				v-if="!done && !current_question.entered"
+				@click="answerQuestion()"
+				:disabled="current_question.answers.every(item => !item.selected)"
+				:ripple="false"
+			>
+				Ответить
+			</v-btn>
 
-				<v-btn
-					v-if="current_question && current_question.entered"
-					@click="increaseStep()"
-					class="ml-6"
-          :ripple="false"
-				>
-					Дальше
-				</v-btn>
-			</div>
+			<v-btn
+				v-if="current_question && current_question.entered"
+				@click="increaseStep()"
+				:ripple="false"
+			>
+				Дальше
+			</v-btn>
 		</div>
 	</div>
 </template>
@@ -245,15 +241,13 @@ if (done.value)
 	background-image: linear-gradient(#fafafa 0,#fafafa 130px,rgba(68,28,80,.1) 160px,#fff 100%);
 	box-shadow: 0 0 0.11rem 0 rgb(0 0 0 / 30%);
 
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 8px 20px;
-	width: 60%;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 50%;
-	transform: translateX(-50%);
+	padding: 8px 20px 20px 20px;
+	margin: 0 auto;
+	max-width: 900px;
+	min-height: 100vh;
 }
 </style>
