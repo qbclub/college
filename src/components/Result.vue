@@ -15,10 +15,7 @@ let percents = Math.round(props.right/props.answersAmount*100)
 </script>
 
 <template>
-  <v-row 
-    class="flex-column justify-center"
-    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"  
-  >
+  <v-row class="ma-auto flex-column justify-center">
     <v-col cols="12" :class="`text-center text-h4 ${percents >= 50 ? 'text-green-darken-2' : 'text-red-darken-2'}`">
       Ваш результат {{ percents }}%
     </v-col>
