@@ -3,10 +3,10 @@ import { ref,watch } from 'vue'
 import ContentInfo from '../components/ContentInfo.vue'
 import Advices from '../components/Advices.vue'
 import KeyWords from '../components/KeyWords.vue'
-import SmallScreen from '../components/SmallScreen.vue'
 import { useRoute, useRouter } from "vue-router"
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 import { useDB } from '../stores/db'
+import MobileHome from '../views/MobileHome.vue'
 
 let code = useRoute().query.code
 const content = await useDB().getFromCode(code)
@@ -27,16 +27,16 @@ let routeTo = (path) => {
   router.push(path)
 }
 
-watch(smallScreen, (x) => {
-  if(x){
-  dialog.value = true
-  dialogContent.value = "smallScreen"
+watch(smallScreen, (smallScreen) => {
+  if(smallScreen){
+    console.log(smallScreen)
   }
 })
 
 </script>
 
 <template>
+<div v-if="!smallScreen">  
   <div class="top-block">
     <div class="top-left">
       <div class="top-block-left" @click="getDialog('contentInfo')">Информация <br> о контенте</div>
@@ -46,61 +46,87 @@ watch(smallScreen, (x) => {
     <div class="top-block-right">
       цифровой образовательный контент
     </div>
+
   </div>
+
   <div class="theme">
+  
     <div class="theme-right">Тема</div>
     <div class="theme-center">{{ content.theme }}</div>
     <div class="theme-left">Спо</div>
 
   </div>
+
   <div class="main">
     <div class="main-left">
       <div class="nav">
+
         <div class="nav-button-befor learning"></div>
+
         <div class="nav-button-learning">
           <div class="nav-button-title learning"> Освоение нового материала</div>
+
           <div class="nav-button-icon learning">
+
             <div class="icon-wrapper">
               <img src="../assets/icons/book.webp">
             </div>
+
           </div>
+
           <div class="nav-button-description ">
+
             <div class="description-text">
               <div class="description-title">{{content.theme}}</div>
               <div class="description">Динамическая инфографика</div>
+              
             </div>
+
             <div class="description-buttons">
               <img src="../assets/icons/advice.webp" @click="getDialog('advices')">
               <img src="../assets/icons/play.webp" @click="routeTo('/content')">
             </div>
+
           </div>
 
         </div>
+
         <div class="nav-button-after learning"> </div>
 
       </div>
+
       <div class="nav">
         <div class="nav-button-befor use"></div>
         <div class="nav-button-use ">
           <div class="nav-button-title use"> Применение изученного материала</div>
+
           <div class="nav-button-icon use">
+
             <div class="icon-wrapper">
               <img src="../assets/icons/use.webp" >
             </div>
+
           </div>
+
           <div class="nav-button-description ">
+
             <div class="description-text">
               <div class="description-title">{{content.theme}}</div>
               <div class="description">Виртуальный тренажер</div>
             </div>
+
             <div class="description-buttons">
               <img src="../assets/icons/advice.webp" @click="getDialog('advices')">
               <img src="../assets/icons/play.webp" @click="routeTo('/quiz')">
             </div>
+
           </div>
+
         </div>
+
         <div class="nav-button-after use"> </div>
       </div>
+
       <div class="nav ">
         <div class="nav-button-befor test"></div>
         <div class="nav-button-test ">
@@ -126,6 +152,7 @@ watch(smallScreen, (x) => {
         </div>
       </div>
     </div>
+
     <div class="main-right">
       <div class="logo-container">
         <img src="../assets/icons/logo.webp">
@@ -153,12 +180,18 @@ watch(smallScreen, (x) => {
         <ContentInfo v-if="dialogContent == 'contentInfo'" />
         <KeyWords v-if="dialogContent == 'keyWords'" :code="code" />
         <Advices v-if="dialogContent == 'advices'" />
-        <SmallScreen v-if="dialogContent == 'smallScreen'" @close="dialog=false"/>
       </v-card>
     </v-dialog>
   </v-row>
+</div>
+
+
+
+<div v-else>
+  <MobileHome/>
+</div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
 .top-block {
   height: 100px;
   display: flex;
@@ -175,7 +208,7 @@ watch(smallScreen, (x) => {
       width: 140px;
       height: 50px;
       border-left: 5px solid #473a53;
-      font-size: 20px;
+      font-size: clamp(1rem, 0.7059rem + 0.4706vw, 1.25rem);
       padding-left: 15px;
       margin-left: 8px;
       line-height: 1.1;
@@ -187,7 +220,7 @@ watch(smallScreen, (x) => {
   .top-block-right {
 
     text-transform: uppercase;
-    font-size: 35px;
+    font-size: clamp(1.5rem, 0.6912rem + 1.2941vw, 2.1875rem);
     color: rgba(0, 0, 0, 0.6);
   }
 
@@ -208,7 +241,7 @@ watch(smallScreen, (x) => {
     line-height: 1;
     text-transform: uppercase;
     color: #473a53;
-    font-size: 36px;
+    font-size: clamp(1.5rem, 0.6912rem + 1.2941vw, 2.1875rem);
     padding: 0 25px;
     margin-left: 8px;
   }
@@ -219,7 +252,7 @@ watch(smallScreen, (x) => {
     color: rgba(0, 0, 0, .2);
     transform: scaleY(1.5) scaleX(.9);
     text-transform: uppercase;
-    font-size: 48px;
+    font-size: clamp(2.25rem, 1.3676rem + 1.4118vw, 3rem);
   }
 
   .theme-left {
@@ -275,7 +308,7 @@ watch(smallScreen, (x) => {
           color: white;
           display: flex;
           align-items: center;
-          font-size: 22px;
+          font-size: clamp(1.125rem, 0.8309rem + 0.4706vw, 1.375rem);
           padding: 0 20px;
 
         }
@@ -309,7 +342,7 @@ watch(smallScreen, (x) => {
 
         .nav-button-description {
           display: flex;
-          font-size: 20px;
+          font-size: clamp(0.875rem, 0.4338rem + 0.7059vw, 1.25rem);
           flex-shrink: 100;
 
           .description-text {
@@ -321,7 +354,7 @@ watch(smallScreen, (x) => {
 
             .description {
               color: rgba(0, 0, 0, .3);
-              font-size: 18px;
+              font-size: clamp(0.875rem, 0.4338rem + 0.7059vw, 1.25rem);
             }
 
 
@@ -330,7 +363,7 @@ watch(smallScreen, (x) => {
           .description-buttons {
             width: 50px;
 
-            font-size: 40px;
+            font-size: clamp(2rem, 1.4118rem + 0.9412vw, 2.5rem);
             display: flex;
             flex-direction: column;
             justify-content: space-around;
@@ -397,7 +430,7 @@ watch(smallScreen, (x) => {
   .fgos-title,
   .mdk-title {
     text-transform: uppercase;
-    font-size: 30px;
+    font-size: clamp(1.3125rem, 0.6507rem + 1.0588vw, 1.875rem);
     color: rgba(0, 0, 0, 0.6);
     margin: 10px 0;
 
@@ -414,7 +447,7 @@ watch(smallScreen, (x) => {
   .fgos-name,
   .mdk-name {
     color: #473a53;
-    font-size: 25px;
+    font-size: clamp(1rem, 0.3382rem + 1.0588vw, 1.5625rem);
   }
 
 
