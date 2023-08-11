@@ -259,9 +259,9 @@ watch(done, (value) => {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 8px 20px 20px 20px;
-	margin: 0 auto;
+	padding: 16px 20px 20px 20px;
+	margin: 20px auto;
 	max-width: 900px;
-	min-height: 100vh;
+	min-height: calc(100vh - 40px);
 }
 </style>
