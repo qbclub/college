@@ -1,9 +1,15 @@
 <script setup>
 import { ref, reactive, computed, watch } from 'vue'
+import { useRoute } from 'vue-router';
+import { useDB } from '../stores/db';
 import Answer from './Answer.vue';
 import Result from './Result.vue';
 
-let test = reactive({
+let code = useRoute().query.code
+const content = await useDB().getFromCode(code)
+
+let test = reactive(content.quiz)
+/*{
 	title: 'Общие сведения о переработке зерна на мукомольном и крупяном предприятиях',
 	questions: [
 		{
@@ -51,7 +57,7 @@ let test = reactive({
 			]
 		}
 	]
-})
+})*/
 
 // Добавляем тех переменные
 for (let question of test.questions) {
