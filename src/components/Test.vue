@@ -4,7 +4,6 @@ import Answer from './Answer.vue';
 import Result from './Result.vue';
 
 let test = reactive({
-	title: 'Общие сведения о переработке зерна на мукомольном и крупяном предприятиях',
 	questions: [
 		{
 			question: 'Выберите верные утверждения',
