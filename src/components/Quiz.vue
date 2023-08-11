@@ -1,35 +1,41 @@
 <script setup>
 import { ref, reactive, computed, watch } from 'vue'
+import { useRoute } from 'vue-router';
+import { useDB } from '../stores/db';
 import Answer from './Answer.vue';
 import Result from './Result.vue';
 
-let test = reactive({
+let code = useRoute().query.code
+const content = await useDB().getFromCode(code)
+
+let test = reactive(content.quiz)
+/*{
 	questions: [
 		{
-			question: 'Выберите верные утверждения',
-			image: '',
+			question: 'Этот инструмент называется ...',
+			image: 'https://ru.yougile.com/user-data/1a21877c-f54f-443d-afba-c33f02f2e0f8/%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B0.jpg',
 			answers: [
 				{
-					text: 'Комбикормовая промышленность появилась в СССР в 1970-е годы.',
+					text: 'Инструмент для снятия изоляции',
 					right: false,
 				},
 				{
-					text: 'В 1950—1960-е годы контроль и управление отдельными технологическими операциями были автоматизированы. ',
+					text: 'Кримпер для обжима наконечников НКИ',
 					right: true,
 				},
 				{
-					text: 'В 1962 г. была разработана первая типовая схема подготовки и размола зерна.',
+					text: 'Кримпер для обжима наконечников НШВИ',
 					right: false,
 				},
 				{
-					text: 'Принципы организации и ведения технологического процесса производства муки были заложены в конце XIX — начале XX века.',
-					right: true,
+					text: 'Стриппер',
+					right: false,
 				},
 			]
 		},
 		{
 			question: 'Закончите предложение: «Сепарирование продуктов размола зерна по размерам при мукомольном производстве осуществляется в …».',
-			type: 'once',
+			image: 'https://img.gazeta.ru/files3/938/17274938/RIA_8472601-pic_32ratio_1200x800-1200x800-24688.jpg',
 			answers: [
 				{
 					text: 'воздушно-ситовых сепараторах',
@@ -50,7 +56,7 @@ let test = reactive({
 			]
 		}
 	]
-})
+})*/
 
 // Добавляем тех переменные
 for (let question of test.questions) {
@@ -101,12 +107,9 @@ function compareRightAnswers(questions) {
 	right_entered_amount.value = 0
 	entered_amount.value = 0
 
-	// Считаем количество всех введенных ответов
+	// Считаем количество введённых или правильных ответов
 	questions.forEach(question => {
-		question.answers.forEach(answer => {
-			if (answer.selected)
-				entered_amount.value++
-		})
+		entered_amount.value += question.answers.filter(answer => answer.selected || answer.right).length
 	})
 
 	// Считаем количество правильно введенных ответов
@@ -162,46 +165,54 @@ watch(done, (value) => {
 			</div>
 		</div>
 
-		<div 
-			v-if="!done"
-			class="h-100 mt-4 pb-4" 
-			style="width: 85%;"	
-		>
-			<v-row 
-				class="flex-column"
-				style="margin: auto;"
+		<v-fade-transition leave-absolute hide-on-leave>
+			<div 
+				v-if="!done"
+				class="h-100 mt-4 pb-4" 
+				style="width: 85%;"	
 			>
-				<v-col cols="12">
-					<img 
-						:src="current_question.image" 
-						style="max-height: 30vh; max-width: 90%;"
-					/>
-				</v-col>
-
-				<v-col>
-					<v-row>
-						<v-col
-							v-for="(answer, index) in current_question.answers"
-							:key="index"
-							cols="12" lg="6"
-						>
-							<Answer 
-								@click="select(index)"
-								:answer="answer"
-								:entered="current_question.entered"
+				<v-row 
+					class="flex-column"
+					style="margin: auto;"
+				>
+					<v-col cols="12" class="d-flex justify-center">
+						<v-fade-transition leave-absolute>
+							<img 
+								:src="current_question.image" 
+								style="max-height: 35vh; max-width: 90%;"
 							/>
-						</v-col>
-					</v-row>
-				</v-col>
-			</v-row>
-		</div>
+						</v-fade-transition>
+					</v-col>
+	
+					<v-col>
+						<v-row>
+							<v-fade-transition group>
+								<v-col
+									v-for="(answer, index) in current_question.answers"
+									:key="index"
+									cols="12" lg="6"
+								>
+									<Answer 
+										@click="select(index)"
+										:answer="answer"
+										:entered="current_question.entered"
+									/>
+								</v-col>
+							</v-fade-transition>
+						</v-row>
+					</v-col>
+				</v-row>
+			</div>
+		</v-fade-transition>
 
-		<Result 
-			v-if="done"
-			:right="right_entered_amount"
-			:answersAmount="entered_amount"
-			:time="timer"
-		/>
+		<v-fade-transition leave-absolute hide-on-leave>
+			<Result 
+				v-if="done"
+				:right="right_entered_amount"
+				:answersAmount="entered_amount"
+				:time="timer"
+			/>
+		</v-fade-transition>
 
 		<v-spacer />
 
