@@ -16,8 +16,8 @@ const router = createRouter({
       children: [
         {
           path: '',
-          name: 'Video',
-          component: () => import('@/components/Video.vue'),
+          name: 'Interactive',
+          component: () => import('@/components/Interactive.vue'),
         },
         {
           path: '/test',

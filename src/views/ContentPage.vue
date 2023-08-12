@@ -11,6 +11,7 @@
     top: 260px;
     left: -50px;
     transform: rotate(-90deg);
+    z-index: 10;
 }
 
 </style>

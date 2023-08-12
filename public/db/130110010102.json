@@ -16,7 +16,13 @@
         "",
         ""
     ],
-    "video": "https://storage.yandexcloud.net/coks-video/1301100102.mp4",
+    "interactive": {
+       
+        "type":"video",
+         "video": "https://storage.yandexcloud.net/coks-video/1301100102.mp4",
+         "slides":["src/assets/slides/1.jpg", "src/assets/slides/2.jpg", "src/assets/slides/3.jpg"]
+
+    },   
     "test": {
         "questions": [
             {
@@ -255,7 +261,7 @@
         "questions": [
             {
                 "question": "Установите соответствие между изображением инструмента и названием.",
-                "image": "/src/assets/images/1.jpg",
+                "image": "../assets/images/1.jpg",
                 "answers": [
                     {
                         "text": "Инструмент для снятия изоляции",
@@ -277,7 +283,7 @@
             },
             {
                 "question": "Установите соответствие между изображением инструмента и названием.",
-                "image": "/src/assets/images/2.jpg",
+                "image": "../assets/images/2.jpg",
                 "answers": [
                     {
                         "text": "Инструмент для снятия изоляции",
@@ -299,7 +305,7 @@
             },
             {
                 "question": "Установите соответствие между внешним видом проводника и маркой провода.",
-                "image": "/src/assets/images/3.jpg",
+                "image": "../assets/images/3.jpg",
                 "answers": [
                     {
                         "text": "Провод АППВ 2х2.5",
@@ -321,7 +327,7 @@
             },
             {
                 "question": "Установите соответствие между внешним видом проводника и маркой провода.",
-                "image": "/src/assets/images/4.jpg",
+                "image": "../assets/images/4.jpg",
                 "answers": [
                     {
                         "text": "Провод АППВ 2х2.5",
@@ -343,7 +349,7 @@
             },
             {
                 "question": "Установите соответствие между внешним видом монтажного провода и маркой провода.",
-                "image": "/src/assets/images/5.jpg",
+                "image": "../assets/images/5.jpg",
                 "answers": [
                     {
                         "text": "Провод ПВ-3 1,5 (ПуГВ 1х1,5)",
@@ -365,7 +371,7 @@
             },
             {
                 "question": "Установите соответствие между внешним видом изолированных наконечников и типом наконечников.",
-                "image": "/src/assets/images/6.jpg",
+                "image": "../assets/images/6.jpg",
                 "answers": [
                     {
                         "text": "Наконечник НВИ 2-6",
@@ -387,7 +393,7 @@
             },
             {
                 "question": "Установите соответствие между внешним видом изолированных наконечников и типом наконечников.",
-                "image": "/src/assets/images/7.jpg",
+                "image": "../assets/images/7.jpg",
                 "answers": [
                     {
                         "text": "Наконечник НВИ 2-6",
@@ -409,7 +415,7 @@
             },
             {
                 "question": "Установите соответствие между внешним видом искусственных источников света и типом ламп.",
-                "image": "/src/assets/images/8.jpg",
+                "image": "../assets/images/8.jpg",
                 "answers": [
                     {
                         "text": "Искусственный источник света, основанные на светодиодах",
@@ -431,7 +437,7 @@
             },
             {
                 "question": "Установите соответствие между внешним видом искусственных источников света и типом ламп.",
-                "image": "/src/assets/images/9.jpg",
+                "image": "../assets/images/9.jpg",
                 "answers": [
                     {
                         "text": "Искусственный источник света, основанные на светодиодах",

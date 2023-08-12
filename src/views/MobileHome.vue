@@ -26,121 +26,121 @@ let routeTo = (path) => {
 </script>
 
 <template>
-<div>  
-  <div class="top-block">
-    <div class="top-left">
-      <div class="top-block-left" @click="getDialog('contentInfo')">Информация <br> о контенте</div>
-      <div class="top-block-left" @click="getDialog('keyWords')"> Ключевые <br> слова</div>
+  <div>
+    <div class="top-block">
+      <div class="top-left">
+        <div class="top-block-left" @click="getDialog('contentInfo')">Информация <br> о контенте</div>
+        <div class="top-block-left" @click="getDialog('keyWords')"> Ключевые <br> слова</div>
+      </div>
+
+      <div class="top-block-right">
+        цифровой образовательный контент
+      </div>
+
     </div>
 
-    <div class="top-block-right">
-      цифровой образовательный контент
+    <div class="theme">
+
+      <div class="theme-right">Тема</div>
+      <div class="theme-center"><span>{{ content.theme }}</span></div>
+
     </div>
 
-  </div>
+    <div class="main">
+      <div class="logo-container">
+        <img src="../assets/icons/logo.webp">
+      </div>
+      <div class="main-left">
 
-  <div class="theme">
-  
-    <div class="theme-right">Тема</div>
-    <div class="theme-center"><span>{{ content.theme }}</span></div>
+        <div class="nav">
+          <div class="nav-button-learning">
 
-  </div>
-
-  <div class="main">
-  <div class="logo-container">
-    <img src="../assets/icons/logo.webp">
-  </div>
-    <div class="main-left">
-
-      <div class="nav">
-        <div class="nav-button-learning">
-
-        <div>
-          <div>Освоение нового материала</div>
-          <div class="description">Динамическая инфографика</div>
-        </div>
-
-
-
-          <div class="nav-button-description ">
-            <div class="description-buttons">
-              <img src="../assets/icons/advice.webp" class="mb-1" @click="getDialog('advices')">
-              <img src="../assets/icons/play.webp" @click="routeTo('/content')">
+            <div>
+              <div>Освоение нового материала</div>
+              <div class="description">Динамическая инфографика</div>
             </div>
-          </div>
-
-        </div>
 
 
 
-      </div>
-
-      <div class="nav">
-        <div class="nav-button-use ">
-
-        <div>
-          <div>Применение изученного материала</div>
-          <div class="description">Виртуальный тренажер</div>
-        </div>  
-
-
-          <div class="nav-button-description ">
-            <div class="description-buttons">
-              <img src="../assets/icons/advice.webp" class="mb-1" @click="getDialog('advices')">
-              <img src="../assets/icons/play.webp" @click="routeTo('/quiz')">
-          </div>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="nav ">
-        <div class="nav-button-test ">
-          <div>
-            <div>Диагностика приобретенных знаний, умений, навыков</div>
-            <div class="description">Интерактивный тренажер по выполнению заданий</div>
-          </div>
-
-          <div class="nav-button-description">
-            <div class="description-buttons">
-              <img src="../assets/icons/advice.webp" class="mb-1" @click="getDialog('advices')">
-              <img src="../assets/icons/play.webp" @click="routeTo('/test')">
+            <div class="nav-button-description ">
+              <div class="description-buttons">
+                <img src="../assets/icons/advice.webp" class="mb-1" @click="getDialog('advices')">
+                <img src="../assets/icons/play.webp" @click="routeTo('/content')">
+              </div>
             </div>
+
+          </div>
+
+
+
+        </div>
+
+        <div class="nav">
+          <div class="nav-button-use ">
+
+            <div>
+              <div>Применение изученного материала</div>
+              <div class="description">Виртуальный тренажер</div>
+            </div>
+
+
+            <div class="nav-button-description ">
+              <div class="description-buttons">
+                <img src="../assets/icons/advice.webp" class="mb-1" @click="getDialog('advices')">
+                <img src="../assets/icons/play.webp" @click="routeTo('/quiz')">
+              </div>
+            </div>
+
           </div>
 
         </div>
-      </div>
-    </div>
 
-    <div class="main-right">
-      <div class="fgos-mdk-code">
-        <div class="fgos-title ">ФГОС СПО {{ content.fgos.code }}</div>
-        <div class="fgos-name">{{ content.fgos.name }}</div>
-        <div class="mdk-title">ПМ {{ content.pm.code }}</div>
-        <div class="mdk-name">{{ content.pm.name }}</div>
-        <div class="mdk-title">МДКн {{ content.mdk.code }}</div>
-        <div class="mdk-name">{{ content.mdk.name }}</div>
-      </div>
-    </div>
+        <div class="nav ">
+          <div class="nav-button-test ">
+            <div>
+              <div>Диагностика приобретенных знаний, умений, навыков</div>
+              <div class="description">Интерактивный тренажер по выполнению заданий</div>
+            </div>
 
-  </div>
+            <div class="nav-button-description">
+              <div class="description-buttons">
+                <img src="../assets/icons/advice.webp" class="mb-1" @click="getDialog('advices')">
+                <img src="../assets/icons/play.webp" @click="routeTo('/test')">
+              </div>
+            </div>
 
-  <v-row justify="center">
-    <v-dialog v-model="dialog" width="800" height="500">
-
-      <v-card>
-        <div class="pa-1 d-flex justify-end">
-          <v-btn @click="dialog = false" icon="mdi-close" size="small" color="#456DB1" style="color: white;">
-          </v-btn>
+          </div>
         </div>
-        <ContentInfo v-if="dialogContent == 'contentInfo'" />
-        <KeyWords v-if="dialogContent == 'keyWords'" :code="code" />
-        <Advices v-if="dialogContent == 'advices'" />
-      </v-card>
-    </v-dialog>
-  </v-row>
-</div>
+      </div>
+
+      <div class="main-right">
+        <div class="fgos-mdk-code">
+          <div class="fgos-title ">ФГОС СПО {{ content.fgos.code }}</div>
+          <div class="fgos-name">{{ content.fgos.name }}</div>
+          <div class="mdk-title">ПМ {{ content.pm.code }}</div>
+          <div class="mdk-name">{{ content.pm.name }}</div>
+          <div class="mdk-title">МДКн {{ content.mdk.code }}</div>
+          <div class="mdk-name">{{ content.mdk.name }}</div>
+        </div>
+      </div>
+
+    </div>
+
+    <v-row justify="center">
+      <v-dialog v-model="dialog" width="800" height="500">
+
+        <v-card>
+          <div class="pa-1 d-flex justify-end">
+            <v-btn @click="dialog = false" icon="mdi-close" size="small" color="#456DB1" style="color: white;">
+            </v-btn>
+          </div>
+          <ContentInfo v-if="dialogContent == 'contentInfo'" />
+          <KeyWords v-if="dialogContent == 'keyWords'" :code="code" />
+          <Advices v-if="dialogContent == 'advices'" />
+        </v-card>
+      </v-dialog>
+    </v-row>
+  </div>
 </template>
 <style lang="scss" scoped>
 .top-block {
@@ -299,12 +299,14 @@ let routeTo = (path) => {
   .mdk-name {
     color: #473a53;
     font-size: clamp(1rem, 0.3382rem + 1.0588vw, 1.5625rem);
+    margin-bottom: 20px;
   }
 
 
 }
+
 .description {
-              color: rgba(0, 0, 0, .3);
-              font-size: clamp(0.875rem, 0.4338rem + 0.7059vw, 1.25rem);
-            }
+  color: rgba(0, 0, 0, .3);
+  font-size: clamp(0.875rem, 0.4338rem + 0.7059vw, 1.25rem);
+}
 </style>
