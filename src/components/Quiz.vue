@@ -69,6 +69,7 @@ for (let question of test.questions) {
 
 let current_step = ref(1)
 let current_question = computed(() => test.questions[current_step.value - 1])
+let imgUrl = computed(() => { return new URL(current_question.value.image, import.meta.url) })
 
 let steps = computed(() => test.questions.length)
 let done = computed(() => current_step.value > steps.value)
@@ -166,7 +167,8 @@ watch(done, (value) => {
 			<v-row v-if="!done" class="h-100 mt-4 pb-4" style="width: 85%;">
 				<v-col cols="12" class="d-flex justify-center">
 					<v-fade-transition leave-absolute>
-						<img :src="current_question.image" style="max-height: 40vh; max-width: 90%;" />
+
+						<img :src="imgUrl" style="max-height: 40vh; max-width: 90%;" />
 					</v-fade-transition>
 				</v-col>
 
@@ -214,11 +216,11 @@ watch(done, (value) => {
 <style lang="scss" scoped>
 .container {
 	background-attachment: fixed;
-	background-color: rgba(241,242,242,.5);
+	background-color: rgba(241, 242, 242, .5);
 	// background-image: linear-gradient(#fafafa 0, #fafafa 130px, rgba(68, 28, 80, .1) 160px, #fff 100%);
 	// box-shadow: 0 0 0.11rem 0 rgb(0 0 0 / 30%);
 
-	position: relative;
+	// position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

@@ -254,7 +254,7 @@ watch(done, (value) => {
 	// background-image: linear-gradient(#fafafa 0,#fafafa 130px,rgba(68,28,80,.1) 160px,#fff 100%);
 	// box-shadow: 0 0 0.11rem 0 rgb(0 0 0 / 30%);
 
-	position: relative;
+	// position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

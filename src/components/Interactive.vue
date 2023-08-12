@@ -7,11 +7,14 @@ const content = await useDB().getFromCode(code)
 </script>
 
 <template>
-    <div class="container-video">
+    <div v-if="content.interactive.type == 'video'"  class="container-video">
         <h2>{{ content.theme }}</h2>
         <video width="320" controls autoplay>
-            <source :src="content.video" type="video/mp4">
+            <source :src="content.interactive.video" type="video/mp4">
         </video>
+    </div>
+    <div v-if="content.interactive.type == 'slide-show'">
+        Тут слайд-шоу
     </div>
 </template>
 <style scoped>
@@ -26,5 +29,8 @@ const content = await useDB().getFromCode(code)
 video, h2{
     width: 60%;
     text-align: center;
+}
+h2{
+    font-size: clamp(1rem, 0.5294rem + 0.9412vw, 1.5rem);
 }
 </style>
