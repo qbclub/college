@@ -95,7 +95,7 @@ function back() {
 
 function select(index) {
 	// Если radio и что-то введено, значит очищаем что введено
-	if (current_question.value.type === 'once' && current_question.value.answers.some(item => item.selected))
+	if (current_question.value.type === 'once' && current_question.value.answers.some(item => item.selected) && !current_question.value.entered)
 		test.questions[current_step.value-1].answers.forEach(answer => answer.selected = false)
 
 	if (current_question.value.entered)
