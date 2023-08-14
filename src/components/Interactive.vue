@@ -5,7 +5,8 @@ import { useDB } from '../stores/db'
 let code = useRoute().query.code
 const content = await useDB().getFromCode(code)
 
-// let imgUrl = (index) => { return new URL(content.interactive.slides[index], import.meta.url) }
+
+let imgUrl = (index) => { return new URL(content.interactive.slides[index], import.meta.url) }
 </script>
 
 <template>
@@ -21,7 +22,7 @@ const content = await useDB().getFromCode(code)
 
             <v-carousel hide-delimiters style="height: 80vh;">
                 <v-carousel-item v-for="slide, index in content.interactive.slides" :key="index" :src="slide">
-    
+    {{ slide }}
                 </v-carousel-item>
 
 
