@@ -342,6 +342,9 @@ watch(smallScreen, (smallScreen) => {
 
         .nav-button-description {
           display: flex;
+          width: 100%;
+          margin-right: 6px;
+          justify-content: space-between;
           font-size: clamp(0.875rem, 0.4338rem + 0.7059vw, 1.25rem);
           flex-shrink: 100;
 
