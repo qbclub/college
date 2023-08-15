@@ -235,6 +235,7 @@ watch(smallScreen, (smallScreen) => {
   background-color: #fff;
   border-top: 5px solid #473b53;
   border-bottom: 5px solid #473b53;
+  justify-content: space-between;
 
   .theme-center {
     text-transform: uppercase;
