@@ -235,6 +235,7 @@ watch(smallScreen, (smallScreen) => {
   background-color: #fff;
   border-top: 5px solid #473b53;
   border-bottom: 5px solid #473b53;
+  justify-content: space-between;
 
   .theme-center {
     text-transform: uppercase;
@@ -342,6 +343,9 @@ watch(smallScreen, (smallScreen) => {
 
         .nav-button-description {
           display: flex;
+          width: 100%;
+          margin-right: 6px;
+          justify-content: space-between;
           font-size: clamp(0.875rem, 0.4338rem + 0.7059vw, 1.25rem);
           flex-shrink: 100;
 
