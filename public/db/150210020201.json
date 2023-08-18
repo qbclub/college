@@ -1,5 +1,5 @@
 {
-    "theme": "",
+    "theme": "Технологическое оборудование и оснастка автоматизированных и мехатронных систем",
     "fgos": {
         "code": "15.02.10",
         "name": "Мехатроника и мобильная робототехника (по отраслям)"
@@ -12,29 +12,399 @@
         "code": "02.01",
         "name": "Техническое обслуживание, ремонт и испытаний мехатронных систем"
     },
+    "interactive": {
+        "type":"video",
+        "video": "https://storage.yandexcloud.net/coks-video/150210020201.mp4",
+        "slides":["src/assets/slides/1.jpg", "src/assets/slides/2.jpg", "src/assets/slides/3.jpg"]
+    },
     "video": "/videos/150210020201.mp4",
     "test": {
         "questions": [
             {
-                "question": "",
-                "type": "multi",
+                "question": "Какой цвет отсутствует на световой колонне?",
+                "type": "once",
                 "answers": [
                     {
-                        "text": "",
+                        "text": "красный",
+                        "right": false
+                    },
+                    {
+                        "text": "зеленый",
+                        "right": false
+                    },
+                    {
+                        "text": "желтый",
+                        "right": false
+                    },
+                    {
+                        "text": "фиолетовый",
+                        "right": true
+                    }
+                  
+
+                ]
+            },
+            {
+                "question": "Прибор, для измерения давления в системе пневматики",
+                "type": "once",
+                "answers": [
+                    {
+                        "text": "амперметр",
+                        "right": false
+                    },
+                    {
+                        "text": "манометр",
+                        "right": true
+                    },
+                    {
+                        "text": "вольтметр",
+                        "right": false
+                    },
+                    {
+                        "text": "ваттметр",
                         "right": false
                     }
+                  
+
+                ]
+            },
+            {
+                "question": "Какого способа сортировки заготовок нет",
+                "type": "once",
+                "answers": [
+                    {
+                        "text": "по материалу",
+                        "right": false
+                    },
+                    {
+                        "text": "по цвету",
+                        "right": false
+                    },
+                    {
+                        "text": "по высоте",
+                        "right": false
+                    },
+                    {
+                        "text": " все есть",
+                        "right": true
+                    }
+                  
+
+                ]
+            },
+            {
+                "question": "Какой датчик используется для определения «металличности» заготовки?",
+                "type": "once",
+                "answers": [
+                    {
+                        "text": "индуктивный",
+                        "right": true
+                    },
+                    {
+                        "text": "емкостной",
+                        "right": false
+                    },
+                    {
+                        "text": "оптический",
+                        "right": false
+                    },
+                    {
+                        "text": "геркон",
+                        "right": false
+                    }
+                  
+
+                ]
+            },
+            {
+                "question": "Какой датчик используется для определения «металличности» заготовки?",
+                "type": "once",
+                "answers": [
+                    {
+                        "text": "индуктивный",
+                        "right": true
+                    },
+                    {
+                        "text": "емкостной",
+                        "right": false
+                    },
+                    {
+                        "text": "оптический",
+                        "right": false
+                    },
+                    {
+                        "text": "геркон",
+                        "right": false
+                    }
+                  
+
+                ]
+            },
+            {
+                "question": "В какой среде программируют контроллеры Siemens?",
+                "type": "once",
+                "answers": [
+                    {
+                        "text": "FluidSIM",
+                        "right": false
+                    },
+                    {
+                        "text": "Word",
+                        "right": false
+                    },
+                    {
+                        "text": "TiaPortal",
+                        "right": true
+                    },
+                    {
+                        "text": "OwenLogic",
+                        "right": false
+                    }
+                  
+
+                ]
+            },
+            {
+                "question": "Какой датчик реагирует на магнит?",
+                "type": "once",
+                "answers": [
+                    {
+                        "text": "индуктивный",
+                        "right": false
+                    },
+                    {
+                        "text": "емкостной",
+                        "right": false
+                    },
+                    {
+                        "text": "оптический",
+                        "right": false
+                    },
+                    {
+                        "text": "геркон",
+                        "right": true
+                    }
+                  
+
+                ]
+            },
+            {
+                "question": "Для чего используется SimulBox?",
+                "type": "once",
+                "answers": [
+                    {
+                        "text": "для хранения инструментов",
+                        "right": false
+                    },
+                    {
+                        "text": "для проверки правильности подключения входов/выходов",
+                        "right": true
+                    },
+                    {
+                        "text": "для регулировки освещенности",
+                        "right": false
+                    },
+                    {
+                        "text": "все ответы верны",
+                        "right": false
+                    }
+                  
+
+                ]
+            },
+            {
+                "question": "Назначение световой колонны",
+                "type": "once",
+                "answers": [
+                    {
+                        "text": "подсветка рабочего места",
+                        "right": false
+                    },
+                    {
+                        "text": "освещение помещения",
+                        "right": false
+                    },
+                    {
+                        "text": "сигнализация о режимах работы",
+                        "right": true
+                    },
+                    {
+                        "text": "нет правильного ответа",
+                        "right": false
+                    }
+                  
+
+                ]
+            },
+            {
+                "question": "Назовите лишний инструмент при разборке накопителя",
+                "type": "once",
+                "answers": [
+                    {
+                        "text": "отвертка",
+                        "right": false
+                    },
+                    {
+                        "text": "шестигранный ключ",
+                        "right": false
+                    },
+                    {
+                        "text": "гаечный ключ",
+                        "right": false
+                    },
+                    {
+                        "text": "нож",
+                        "right": true
+                    }
+                  
+
                 ]
             }
+
         ]
     },
     "quiz": {
         "questions": [
             {
-                "question": "",
-                "image": "",
+                "question": "Установите соответствие",
+                "image": "../assets/images/1.jpg",
                 "answers": [
                     {
-                        "text": "",
+                        "text": "Пульт SimulBox",
+                        "right": false
+                    },
+                    {
+                        "text": "Терминал подключения входов-выходов",
+                        "right": false
+                    },
+                    {
+                        "text": "Световая колонна",
+                        "right": true
+                    }
+                ]
+            },
+            {
+                "question": "Установите соответствие",
+                "image": "../assets/images/2.jpg",
+                "answers": [
+                    {
+                        "text": "Пульт SimulBox",
+                        "right": true
+                    },
+                    {
+                        "text": "Терминал подключения входов-выходов",
+                        "right": false
+                    },
+                    {
+                        "text": "Световая колонна",
+                        "right": false
+                    }
+                ]
+            },
+            {
+                "question": "Стрелка A указывает на:",
+                "image": "../assets/images/3.jpg",
+                "answers": [
+                    {
+                        "text": "Пневмоостров",
+                        "right": false
+                    },
+                    {
+                        "text": "Контроллер электродвигателя",
+                        "right": false
+                    },
+                    {
+                        "text": "Многополюсный I/O модуль",
+                        "right": true
+                    }
+                ]
+            },
+            {
+                "question": "Стрелка Б указывает на:",
+                "image": "../assets/images/3.jpg",
+                "answers": [
+                    {
+                        "text": "Пневмоостров",
+                        "right": false
+                    },
+                    {
+                        "text": "Контроллер электродвигателя",
+                        "right": true
+                    },
+                    {
+                        "text": "Многополюсный I/O модуль",
+                        "right": false
+                    }
+                ]
+            },
+            {
+                "question": "Стрелка А указывает на:",
+                "image": "../assets/images/4.jpg",
+                "answers": [
+                    {
+                        "text": "Магазин выдачи заготовок",
+                        "right": false
+                    },
+                    {
+                        "text": "Блок подготовки воздуха",
+                        "right": true
+                    },
+                    {
+                        "text": "Захват",
+                        "right": false
+                    }
+                ]
+            },
+            {
+                "question": "Стрелка Б указывает на:",
+                "image": "../assets/images/4.jpg",
+                "answers": [
+                    {
+                        "text": "Магазин выдачи заготовок",
+                        "right": false
+                    },
+                    {
+                        "text": "Блок подготовки воздуха",
+                        "right": false
+                    },
+                    {
+                        "text": "Захват",
+                        "right": true
+                    }
+                ]
+            },
+            {
+                "question": "Установите соответствие по подключению к клемнику",
+                "image": "../assets/images/5.jpg",
+                "answers": [
+                    {
+                        "text": "Индуктивный датчик",
+                        "right": true
+                    },
+                    {
+                        "text": "Двигатель",
+                        "right": false
+                    },
+                    {
+                        "text": "Световая колонна",
+                        "right": false
+                    }
+                ]
+            },
+            {
+                "question": "Установите соответствие по подключению к клемнику",
+                "image": "../assets/images/6.jpg",
+                "answers": [
+                    {
+                        "text": "Индуктивный датчик",
+                        "right": false
+                    },
+                    {
+                        "text": "Двигатель",
+                        "right": true
+                    },
+                    {
+                        "text": "Оптический датчик",
                         "right": false
                     }
                 ]
