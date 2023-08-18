@@ -19,7 +19,7 @@ const content = await useDB().getFromCode(code)
         <h2>{{ content.theme }}</h2>
         <v-col cols="12" md="8">
 
-            <v-carousel hide-delimiters>
+            <v-carousel hide-delimiters style="height: 80vh;">
                 <v-carousel-item v-for="slide, index in content.interactive.slides" :key="index" :src="slide">
     
                 </v-carousel-item>
