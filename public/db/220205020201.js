@@ -14,7 +14,7 @@
   },
   interactive: {
     type: "video",
-    video: "https://storage.yandexcloud.net/coks-video/1301100102.mp4",
+    video: "https://storage.yandexcloud.net/coks-video/220205020201.mp4",
     slides: []
   },
   test: {
