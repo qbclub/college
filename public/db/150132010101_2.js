@@ -46,11 +46,11 @@ export default {
           },
           {
             text: "Отливка",
-            right: false
+            right: true
           },
           {
             text: "Прокат",
-            right: true
+            right: false
           }
         ]
       },
@@ -60,7 +60,7 @@ export default {
         answers: [
           {
             text: "Поковка",
-            right: false
+            right: true
           },
           {
             text: "Штамповка",
@@ -72,7 +72,7 @@ export default {
           },
           {
             text: "Отливка",
-            right: true
+            right: false
           }
         ]
       },
@@ -86,7 +86,7 @@ export default {
           },
           {
             text: "Штамповка",
-            right: false
+            right: true
           },
           {
             text: "Отливка",
@@ -94,7 +94,7 @@ export default {
           },
           {
             text: "Прокат",
-            right: true
+            right: false
           }
         ]
       },
@@ -108,7 +108,7 @@ export default {
           },
           {
             text: "Холодная объемная штамповка",
-            right: false
+            right: true
           },
           {
             text: "Горячая листовая штамповка",
@@ -116,7 +116,7 @@ export default {
           },
           {
             text: "Прессование",
-            right: true
+            right: false
           }
         ]
       },
@@ -126,7 +126,7 @@ export default {
         answers: [
           {
             text: "Холодная листовая штамповка",
-            right: false
+            right: true
           },
           {
             text: "Холодная объемная штамповка",
@@ -138,7 +138,7 @@ export default {
           },
           {
             text: "Прессование",
-            right: true
+            right: false
           }
         ]
       },
@@ -156,11 +156,11 @@ export default {
           },
           {
             text: "Горячая листовая штамповка",
-            right: false
+            right: true
           },
           {
             text: "Прессование",
-            right: true
+            right: false
           }
         ]
       },
@@ -170,7 +170,7 @@ export default {
         answers: [
           {
             text: "Производства",
-            right: false
+            right: true
           },
           {
             text: "Обработки",
@@ -182,7 +182,7 @@ export default {
           },
           {
             text: "Создания",
-            right: true
+            right: false
           }
         ]
       },
@@ -195,8 +195,8 @@ export default {
             right: false
           },
           {
-            text: "В песчанно-глинястые формы",
-            right: false
+            text: "В песчанно-глинистые формы",
+            right: true
           },
           {
             text: "В чугунные формы",
@@ -204,51 +204,7 @@ export default {
           },
           {
             text: "В бетонные формы",
-            right: true
-          }
-        ]
-      },
-      {
-        question: "Литейная форма представляет собой устройство, предназначенное для _____.",
-        type: "once",
-        answers: [
-          {
-            text: "Заливки металла",
             right: false
-          },
-          {
-            text: "Образования отливки",
-            right: false
-          },
-          {
-            text: "Прессования металла",
-            right: false
-          },
-          {
-            text: "Штамповки металла",
-            right: true
-          }
-        ]
-      },
-      {
-        question: "Анлаки.",
-        type: "once",
-        answers: [
-          {
-            text: "Процесс деформации металла.",
-            right: false
-          },
-          {
-            text: "Приём готовой поковки отделом технического контроля.",
-            right: false
-          },
-          {
-            text: "Термическая обработка поковки.",
-            right: false
-          },
-          {
-            text: "Резка проката различной конфигурации на необходимые размеры.",
-            right: true
           }
         ]
       }
@@ -296,11 +252,11 @@ export default {
           },
           {
             text: "Отливка",
-            right: false
+            right: true
           },
           {
             text: "Точная вырубка",
-            right: true
+            right: false
           },
           {
             text: "Холодная объемная штамповка",
@@ -326,11 +282,11 @@ export default {
           },
           {
             text: "Точная вырубка",
-            right: true
+            right: false
           },
           {
             text: "Холодная объемная штамповка",
-            right: false
+            right: true
           }
         ]
       },
@@ -340,7 +296,7 @@ export default {
         answers: [
           {
             text: "Штамповка",
-            right: false
+            right: true
           },
           {
             text: "Поковка",
@@ -352,7 +308,7 @@ export default {
           },
           {
             text: "Точная вырубка",
-            right: true
+            right: false
           },
           {
             text: "Холодная объемная штамповка",
@@ -370,7 +326,7 @@ export default {
           },
           {
             text: "Поковка",
-            right: false
+            right: true
           },
           {
             text: "Отливка",
@@ -378,7 +334,7 @@ export default {
           },
           {
             text: "Точная вырубка",
-            right: true
+            right: false
           },
           {
             text: "Холодная объемная штамповка",
@@ -406,28 +362,8 @@ export default {
     `,
   keywords: [
     {
-      word: "Заготовка",
-      description: "предмет производства, из которого путём дальнейшей обработки будет получена деталь или неразъёмная сборочная единица."
-    },
-    {
-      word: "Отливка",
-      description: "Процесс изготовления металлических изделий путем заливки расплавленного металла в полость специальной литейной формы."
-    },
-    {
-      word: "Поковка",
-      description: "промежуточное изделие металлургии, полуфабрикат, которое получается в результате деформации металла под давлением"
-    },
-    {
-      word: "Штамповка",
-      description: "процесс, в результате которого заготовки плоского проката — листы, ленты и полосы — изменяют свой размер и геометрическую форму."
-    },
-    {
-      word: "Точная вырубка",
-      description: "Получение заготовки вырубанием из листового материала."
-    },
-    {
-      word: "Прессование",
-      description: "Придание необходимой формы материалу путём выдавливания его через фильеру в форму."
+      word: "",
+      description: ""
     }
   ],
   advice: `
