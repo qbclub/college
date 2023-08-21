@@ -130,13 +130,25 @@
   quiz: {
     questions: [
       {
-        question: "",
-        image: "",
+        question: "Решите задачу",
+        image: "../assets/images/1.jpg",
         answers: [
           {
-            text: "",
+            text: "1.5кН",
+            right: true
+          },
+          {
+            text: "1.4кН",
             right: false
-          }
+          },
+          {
+            text: "2кН",
+            right: false
+          },
+          {
+            text: "1кН",
+            right: false
+          },
         ]
       }
     ]
