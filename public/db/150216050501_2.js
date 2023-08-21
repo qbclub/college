@@ -1,4 +1,4 @@
- export default{
+export default {
   theme: "Защита окружающей среды",
   fgos: {
     code: "15.02.16",
@@ -251,15 +251,152 @@
   quiz: {
     questions: [
       {
-        question: "",
-        image: "",
+        question: "Решите задачу",
+        image: "../assets/images/1.jpg",
         answers: [
           {
-            text: "",
+            text: "1209600м",
+            right: true
+          },
+          {
+            text: "302400м",
+            right: false
+          },
+          {
+            text: "201600м",
+            right: false
+          },
+          {
+            text: "151200м",
             right: false
           }
         ]
-      }
+      },
+      {
+        question: "Установить соответствие между видомё очистки воздуха и очистными сооружениями",
+        image: "../assets/images/2.jpg",
+        answers: [
+          {
+            text: "скруббер",
+            right: false
+          },
+          {
+            text: "циклон",
+            right: true
+          },
+          {
+            text: "адсорбции",
+            right: false
+          }
+        ]
+      },
+      {
+        question: "Установить соответствие между видомё очистки воздуха и очистными сооружениями",
+        image: "../assets/images/3.jpg",
+        answers: [
+          {
+            text: "скруббер",
+            right: true
+          },
+          {
+            text: "циклон",
+            right: false
+          },
+          {
+            text: "фильтр",
+            right: false
+          }
+        ]
+      },
+      {
+        question: "Установить соответствие  между методами очистки воды и очистными сооружениями",
+        image: "../assets/images/4.jpg",
+        answers: [
+          {
+            text: "активный ил",
+            right: false
+          },
+          {
+            text: "фильтр",
+            right: true
+          },
+          {
+            text: "фильтр",
+            right: false
+          }
+        ]
+      }, {
+        question: "Установить соответствие  между методами очистки воды и очистными сооружениями",
+        image: "../assets/images/5.jpg",
+        answers: [
+          {
+            text: "активный ил",
+            right: false
+          },
+          {
+            text: "фильтр",
+            right: false
+          },
+          {
+            text: "фильтр",
+            right: true
+          }
+        ]
+      },
+      {
+        question: "Установить соответствие  между методами очистки воды и очистными сооружениями",
+        image: "../assets/images/6.jpg",
+        answers: [
+          {
+            text: "активный ил",
+            right: true
+          },
+          {
+            text: "фильтр",
+            right: false
+          },
+          {
+            text: "фильтр",
+            right: false
+          }
+        ]
+      },
+      {
+        question: "Решите задачу",
+        image: "../assets/images/7.jpg",
+        answers: [
+          {
+            text: "9600 деревьев",
+            right: true
+          },
+          {
+            text: "8400 деревьев",
+            right: false
+          },
+          {
+            text: "10200 деревьев",
+            right: false
+          }
+        ]
+      },
+      {
+        question: "Составить цепочку взаимосвязи экологических проблем",
+        image: "../assets/images/8.jpg",
+        answers: [
+          {
+            text: "рост народонаселения → загрязнение окружающей среды → глобальное потепление",
+            right: true
+          },
+          {
+            text: "загрязнение окружающей среды → рост народонаселения →  глобальное потепление",
+            right: false
+          },
+          {
+            text: "глобальное потепление рост → народонаселения → загрязнение окружающей среды",
+            right: false
+          }
+        ]
+      },
     ]
   },
   contentinf: "",
