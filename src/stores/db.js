@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import content from '../../public/db/150132010101_2'
+import content from '../../public/db/220105010101'
 
 export const useDB = defineStore('db', () => {
   async function getFromCode() {
