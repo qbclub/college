@@ -176,7 +176,7 @@ watch(done, (value) => {
 					<v-row>
 						<v-fade-transition group>
 							<v-col v-for="(answer, index) in current_question.answers" :key="index" cols="12" lg="6">
-								<Answer @click="select(index)" :answer="answer" :entered="current_question.entered" />
+								<Answer @click="select(index)" :answer="answer" :entered="current_question.entered"  class="h-100"/>
 							</v-col>
 						</v-fade-transition>
 					</v-row>

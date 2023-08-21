@@ -130,8 +130,9 @@ let routeTo = (path) => {
       <v-dialog v-model="dialog" width="800" height="500">
 
         <v-card>
-          <div class="pa-1 d-flex justify-end">
-            <v-btn @click="dialog = false" icon="mdi-close" size="small" color="#456DB1" style="color: white;">
+          <div style="position:relative;">
+            <v-btn @click="dialog = false" icon="mdi-close" size="small" color="#456DB1" style="color: white; "
+              class="close-btn">
             </v-btn>
           </div>
           <ContentInfo v-if="dialogContent == 'contentInfo'" />
@@ -308,5 +309,11 @@ let routeTo = (path) => {
 .description {
   color: rgba(0, 0, 0, .3);
   font-size: clamp(0.875rem, 0.4338rem + 0.7059vw, 1.25rem);
+}
+.close-btn{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  z-index: 1;
 }
 </style>

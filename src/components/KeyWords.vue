@@ -1,14 +1,11 @@
 <script setup>
 import { useDB } from '../stores/db';
 
-let props = defineProps(['code'])
-
-const content = await useDB().getFromCode(props.code)
+const content = await useDB().getFromCode()
 </script>
 
 <template>
   <v-card-text>
-    <span>Ключевые слова</span>
 
     <v-table>
       <tbody>
