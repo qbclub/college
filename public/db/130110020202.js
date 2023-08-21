@@ -12,7 +12,27 @@
     code: "02.02",
     name: "Контрольно-измерительные приборы"
   },
-  video: "/videos/130110020202.mp4",
+  interactive: {
+    type: "slides",
+    video: "",
+    slides: [
+      "src/assets/slides/1.jpeg",
+      "src/assets/slides/2.jpeg",
+      "src/assets/slides/3.jpeg",
+      "src/assets/slides/4.jpeg",
+      "src/assets/slides/5.jpeg",
+      "src/assets/slides/6.jpeg",
+      "src/assets/slides/7.jpeg",
+      "src/assets/slides/8.jpeg",
+      "src/assets/slides/9.jpeg",
+      "src/assets/slides/10.jpeg",
+      "src/assets/slides/11.jpeg",
+      "src/assets/slides/12.jpeg",
+      "src/assets/slides/13.jpeg",
+      "src/assets/slides/14.jpeg",
+      "src/assets/slides/15.jpeg"
+    ]
+  },
   test: {
     questions: [
       {
@@ -124,10 +144,14 @@
             right: false
           },
         ]
-      },
+      },     
+    ]
+  },
+  quiz: {
+    questions: [
       {
         question: "Выберете правильный ответ. На шкале электромеханического прибора указано обозначение. Какой системы является данный  измерительный прибор:",
-        type: "once",
+        image: "../assets/images/1.jpg",
         answers: [
           {
             text: "прибор магнитоэлектрической системы",
@@ -149,7 +173,7 @@
       },
       {
         question: "Выберете правильный ответ. На шкале электромеханического прибора указано обозначение. Какой системы является данный  измерительный прибор:",
-        type: "once",
+        image: "../assets/images/2.jpg",
         answers: [
           {
             text: "прибор магнитоэлектрической системы",
@@ -171,7 +195,7 @@
       },
       {
         question: "Выберете правильный ответ. На шкале электромеханического прибора указано обозначение. Что обозначает данный знак:",
-        type: "once",
+        image: "../assets/images/3.jpg",
         answers: [
           {
             text: "класс точности прибора в процентах",
@@ -193,7 +217,7 @@
       },
       {
         question: "Выберете правильный ответ. На шкале электромеханического прибора указано обозначение. Какой системы является данный  измерительный прибор:",
-        type: "once",
+        image: "../assets/images/4.jpg",
         answers: [
           {
             text: "прибор магнитоэлектрической системы",
@@ -215,7 +239,7 @@
       },
       {
         question: "Выберете правильный ответ. На рисунке представлена схема включения электромеханического прибора. Какой системы является данный  измерительный прибор:",
-        type: "once",
+        image: "../assets/images/5.jpg",
         answers: [
           {
             text: "прибор магнитоэлектрической системы, амперметр",
@@ -235,21 +259,6 @@
           },
         ]
       },
-      
-    ]
-  },
-  quiz: {
-    questions: [
-      {
-        question: "",
-        image: "",
-        answers: [
-          {
-            text: "",
-            right: false
-          }
-        ]
-      }
     ]
   },
   contentinf: "",
