@@ -40,7 +40,7 @@
         answers: [
           {
             text: "пестициды",
-            right: false
+            right: true
           },
           {
             text: "тяжёлые металлы",
@@ -70,7 +70,7 @@
           },
           {
             text: "биологическое",
-            right: false
+            right: true
           },
           {
             text: "механическое",
@@ -84,7 +84,7 @@
         answers: [
           {
             text: "механической",
-            right: false
+            right: true
           },
           {
             text: "физико-химической",
@@ -106,7 +106,7 @@
         answers: [
           {
             text: "механической",
-            right: false
+            right: true
           },
           {
             text: "физико-химической",
@@ -140,7 +140,7 @@
           },
           {
             text: "опустынивание",
-            right: false
+            right: true
           }
         ]
       },
@@ -150,7 +150,7 @@
         answers: [
           {
             text: "геолого-геоморфологическое",
-            right: false
+            right: true
           },
           {
             text: "радиационное",
@@ -180,7 +180,7 @@
           },
           {
             text: "создание СЗЗ",
-            right: false
+            right: true
           }
         ]
       },
@@ -190,7 +190,7 @@
         answers: [
           {
             text: "1",
-            right: false
+            right: true
           },
           {
             text: "2",
@@ -216,7 +216,7 @@
           },
           {
             text: "оксид углерода",
-            right: false
+            right: true
           },
           {
             text: "оксид азота",
@@ -234,7 +234,7 @@
         answers: [
           {
             text: "природоохранное законодательство",
-            right: false
+            right: true
           },
           {
             text: "экологический мониторинг",
