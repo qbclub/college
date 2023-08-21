@@ -1,4 +1,4 @@
- export default{
+export default {
   theme: "Эксплуатация мехатронных систем",
   fgos: {
     code: "15.02.10",
@@ -244,15 +244,143 @@
   quiz: {
     questions: [
       {
-        question: "",
-        image: "",
+        question: "Установите соответствие",
+        image: "../assets/images/1.jpg",
         answers: [
           {
-            text: "",
+            text: "Цилиндр одностороннего действия",
+            right: false
+          },
+          {
+            text: "Цилиндр двухстороннего действия",
+            right: true
+          },
+          {
+            text: "Дроссель",
             right: false
           }
         ]
-      }
+      },
+      {
+        question: "Установите соответствие",
+        image: "../assets/images/2.jpg",
+        answers: [
+          {
+            text: "Цилиндр одностороннего действия",
+            right: false
+          },
+          {
+            text: "Цилиндр двухстороннего действия",
+            right: false
+          },
+          {
+            text: "Дроссель",
+            right: true
+          }
+        ]
+      },
+      {
+        question: "Установите соответствие",
+        image: "../assets/images/3.jpg",
+        answers: [
+          {
+            text: "Цилиндр одностороннего действия",
+            right: true
+          },
+          {
+            text: "Цилиндр двухстороннего действия",
+            right: false
+          },
+          {
+            text: "Дроссель",
+            right: false
+          }
+        ]
+      },
+      {
+        question: "Что изображено на картинке под цифрой 1",
+        image: "../assets/images/4.jpg",
+        answers: [
+          {
+            text: "Поршневая полость",
+            right: false
+          },
+          {
+            text: "Шток",
+            right: true
+          },
+          {
+            text: "Поршень",
+            right: false
+          }, {
+            text: "Штоковая полость",
+            right: false
+          }
+        ]
+      },
+      {
+        question: "Что изображено на картинке под цифрой 2",
+        image: "../assets/images/4.jpg",
+        answers: [
+          {
+            text: "Поршневая полость",
+            right: false
+          },
+          {
+            text: "Шток",
+            right: false
+          },
+          {
+            text: "Поршень",
+            right: true
+          }, {
+            text: "Штоковая полость",
+            right: false
+          }
+        ]
+      },
+      {
+        question: "Что изображено на картинке под цифрой 3",
+        image: "../assets/images/4.jpg",
+        answers: [
+          {
+            text: "Поршневая полость",
+            right: false
+          },
+          {
+            text: "Шток",
+            right: false
+          },
+          {
+            text: "Поршень",
+            right: false
+          }, {
+            text: "Штоковая полость",
+            right: true
+          }
+        ]
+      },
+      {
+        question: "Что изображено на картинке под цифрой 4",
+        image: "../assets/images/4.jpg",
+        answers: [
+          {
+            text: "Поршневая полость",
+            right: true
+          },
+          {
+            text: "Шток",
+            right: false
+          },
+          {
+            text: "Поршень",
+            right: false
+          }, {
+            text: "Штоковая полость",
+            right: false
+          }
+        ]
+      },
     ]
   },
   contentinf: "",
