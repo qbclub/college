@@ -1,4 +1,4 @@
- export default{
+export default {
   theme: "Тепло и массообменные процессы переработки сырья",
   fgos: {
     code: "22.01.05",
@@ -166,19 +166,103 @@
   quiz: {
     questions: [
       {
-        question: "",
+        question: "Какой буквой на рисунке обозначен теплообменник с плавающей головкой открытого типа",
         image: "../assets/images/1.jpg",
         answers: [
           {
-            text: "теплообменник с плавающей головкой открытого типа",
+            text: "д",
             right: false
           },
           {
-            text: "теплообменник с плавающей головкой закрытого типа",
+            text: "е",
+            right: true
+          },
+          {
+            text: "ж",
+            right: false
+          },
+          {
+            text: "з",
             right: false
           }
         ]
-      }
+      },
+      {
+        question: "Какой буквой на рисунке обозначен теплообменник с плавающей головкой закрытого типа",
+        image: "../assets/images/1.jpg",
+        answers: [
+          {
+            text: "д",
+            right: true
+          },
+          {
+            text: "е",
+            right: false
+          },
+          {
+            text: "ж",
+            right: false
+          },
+          {
+            text: "з",
+            right: false
+          }
+        ]
+      },
+      {
+        question: "Ответьте на вопрос",
+        image: "../assets/images/2.jpg",
+        answers: [
+          {
+            text: "установкой перегородок",
+            right: false
+          },
+          {
+            text: "закреплением труб в решётках на сальниках",
+            right: true
+          },
+          {
+            text: "установкой линзового компенсатора на корпусе",
+            right: false
+          }
+        ]
+      },
+      {
+        question: "Ответьте на вопрос",
+        image: "../assets/images/3.jpg",
+        answers: [
+          {
+            text: "точность сборки для сохранения герметичности",
+            right: true
+          },
+          {
+            text: "температурные деформации",
+            right: false
+          },
+          {
+            text: "низкий коэффициент теплопередачи",
+            right: false
+          }
+        ]
+      },
+      {
+        question: "Ответьте на вопрос",
+        image: "../assets/images/4.jpg",
+        answers: [
+          {
+            text: "температурные деформации",
+            right: true
+          },
+          {
+            text: "относительно низкий коэффициент теплоотдачи",
+            right: true
+          },
+          {
+            text: "сложность изготовления",
+            right: false
+          }
+        ]
+      },
     ]
   },
   contentinf: ` 
