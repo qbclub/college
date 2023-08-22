@@ -11,13 +11,13 @@ let imgUrl = (index) => { return new URL(content.interactive.slides[index], impo
 
 <template>
     <div v-if="content.interactive.type == 'video'" class="container-video">
-        <h2>{{ content.theme }}</h2>
+        <!-- <h2>{{ content.theme }}</h2> -->
         <video width="320" controls autoplay>
             <source :src="content.interactive.video" type="video/mp4">
         </video>
     </div>
-    <v-row v-if="content.interactive.type == 'slides'" class="justify-center align-center " style="height:90dvh">
-        <h2>{{ content.theme }}</h2>
+    <v-row v-if="content.interactive.type == 'slides'" class="d-flex justify-center align-center" style="height:90dvh">
+        <!-- <h2>{{ content.theme }}</h2> -->
         <v-col cols="12" md="8">
 
             <v-carousel hide-delimiters style="height: 80vh;">
