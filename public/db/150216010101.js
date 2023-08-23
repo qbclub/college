@@ -1,4 +1,4 @@
- export default{
+export default {
   theme: "Общие сведения о производственных и технологических процессах.",
   fgos: {
     code: "15.02.16",
@@ -14,7 +14,7 @@
   },
   interactive: {
     type: "slides",
-    video: "https://storage.yandexcloud.net/coks-video/1301100102.mp4",
+    // video: "https://storage.yandexcloud.net/coks-video/1301100102.mp4",
     slides: [
       "src/assets/slides/1.jpg",
       "src/assets/slides/2.jpg",
@@ -231,7 +231,7 @@
         ]
       },
       {
-        question: ". Расположение оборудования при единичном типе производства:",
+        question: "Расположение оборудования при единичном типе производства:",
         type: "multi",
         answers: [
           {
@@ -257,13 +257,61 @@
   quiz: {
     questions: [
       {
-        question: "",
-        image: "",
+        question: "Какой вид сварки изображен на картинке?",
+        image: "../assets/images/1.jpg",
         answers: [
           {
-            text: "",
+            text: "Аргонодуговая сварка",
             right: false
-          }
+          },
+          {
+            text: "Газовая сварка",
+            right: false
+          },
+          {
+            text: "Электродуговая сварка",
+            right: false
+          },
+          {
+            text: "плазменная сварка",
+            right: true
+          },
+        ]
+      },
+      {
+        question: "Какой станок изображен на картинке?",
+        image: "../assets/images/2.jpg",
+        answers: [
+          {
+            text: "Фрезерный станок",
+            right: false
+          },
+          {
+            text: "Токарный станок",
+            right: true
+          },
+          {
+            text: "Сверлильный станок",
+            right: false
+          },
+        ]
+      },
+      {
+        question: "Какой метод изготовления изделий изображён на кртинке?",
+        image: "../assets/images/3.jpg",
+        answers: [
+          {
+            text: "Литье под давлением",
+            right: false
+          },
+          {
+            text: "Экструзия",
+            right: true
+          },
+          {
+            text: "Холодная штамповка",
+            right: false
+          },
         ]
       }
     ]

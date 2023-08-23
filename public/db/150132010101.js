@@ -14,7 +14,7 @@ export default {
   },
   interactive: {
     type: "video",
-    video: "https://storage.yandexcloud.net/coks-video/150132010101.mp4",
+    video: "../assets/150132010101.mp4",
     slides: [
       "src/assets/slides/1.jpg",
       "src/assets/slides/2.jpg",
@@ -291,7 +291,7 @@ export default {
       },
       {
         question: "Какой цифрой на схеме обозначена коробка подач?",
-        image: "../assets/images/2.jpg",
+        image: "../assets/images/2.png",
         answers: [
           {
             text: "1",
@@ -331,7 +331,7 @@ export default {
       },
       {
         question: "Какой это станок?",
-        image: "../assets/images/4.jpg",
+        image: "../assets/images/4.png",
         answers: [
           {
             text: "Токарно-винторезный",
@@ -367,7 +367,7 @@ export default {
       },
       {
         question: "Какой цифрой на схеме показана задняя бабка?",
-        image: "../assets/images/6.jpg",
+        image: "../assets/images/6.png",
         answers: [
           {
             text: "5",
@@ -389,7 +389,7 @@ export default {
       },
       {
         question: "Какой цифрой на схеме показана передняя бабка?",
-        image: "../assets/images/7.jpg",
+        image: "../assets/images/7.png",
         answers: [
           {
             text: "1",

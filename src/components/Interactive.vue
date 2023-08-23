@@ -5,27 +5,29 @@ import { useDB } from '../stores/db'
 let code = useRoute().query.code
 const content = await useDB().getFromCode(code)
 
+let imgUrl = (path) => { return new URL(path, import.meta.url) }
 
-let imgUrl = (index) => { return new URL(content.interactive.slides[index], import.meta.url) }
 </script>
 
 <template>
     <div v-if="content.interactive.type == 'video'" class="container-video">
-        <h2>{{ content.theme }}</h2>
+        <!-- <h2>{{ content.theme }}</h2> -->
         <video width="320" controls autoplay>
-            <source :src="content.interactive.video" type="video/mp4">
+            <source :src="imgUrl(content.interactive.video)" type="video/mp4">
         </video>
     </div>
-    <v-row v-if="content.interactive.type == 'slides'" class="justify-center align-center " style="height:90dvh">
-        <h2>{{ content.theme }}</h2>
+    <v-row v-if="content.interactive.type == 'slides'" class="d-flex justify-center align-center" style="height:90dvh">
+        <!-- <h2>{{ content.theme }}</h2> -->
         <v-col cols="12" md="8">
 
             <v-carousel hide-delimiters style="height: 80vh;">
-                <v-carousel-item v-for="slide, index in content.interactive.slides" :key="index" :src="slide">
+                <v-carousel-item v-for="slide, index in content.interactive.slides" :key="index" >
+                    <div class="h-100 w-100 d-flex justify-center">
+                        <img :src="imgUrl(slide)" class="h-100" alt="">
+                    </div>
                 </v-carousel-item>
-
-
             </v-carousel>
+
         </v-col>
 
     </v-row>
