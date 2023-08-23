@@ -21,12 +21,13 @@ let imgUrl = (path) => { return new URL(path, import.meta.url) }
         <v-col cols="12" md="8">
 
             <v-carousel hide-delimiters style="height: 80vh;">
-                <v-carousel-item v-for="slide, index in content.interactive.slides" :key="index" :src="imgUrl(slide)">
-                    {{ imgUrl(slide) }}
+                <v-carousel-item v-for="slide, index in content.interactive.slides" :key="index" >
+                    <div class="h-100 w-100 d-flex justify-center">
+                        <img :src="imgUrl(slide)" class="h-100" alt="">
+                    </div>
                 </v-carousel-item>
-
-
             </v-carousel>
+
         </v-col>
 
     </v-row>
