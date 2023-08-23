@@ -5,15 +5,15 @@ import { useDB } from '../stores/db'
 let code = useRoute().query.code
 const content = await useDB().getFromCode(code)
 
+let imgUrl = (path) => { return new URL(path, import.meta.url) }
 
-let imgUrl = (index) => { return new URL(content.interactive.slides[index], import.meta.url) }
 </script>
 
 <template>
     <div v-if="content.interactive.type == 'video'" class="container-video">
         <!-- <h2>{{ content.theme }}</h2> -->
         <video width="320" controls autoplay>
-            <source :src="content.interactive.video" type="video/mp4">
+            <source :src="imgUrl(content.interactive.video)" type="video/mp4">
         </video>
     </div>
     <v-row v-if="content.interactive.type == 'slides'" class="d-flex justify-center align-center" style="height:90dvh">
@@ -21,7 +21,8 @@ let imgUrl = (index) => { return new URL(content.interactive.slides[index], impo
         <v-col cols="12" md="8">
 
             <v-carousel hide-delimiters style="height: 80vh;">
-                <v-carousel-item v-for="slide, index in content.interactive.slides" :key="index" :src="slide">
+                <v-carousel-item v-for="slide, index in content.interactive.slides" :key="index" :src="imgUrl(slide)">
+                    {{ imgUrl(slide) }}
                 </v-carousel-item>
 
 

@@ -9,54 +9,7 @@ let code = useRoute().query.code
 const content = await useDB().getFromCode(code)
 
 let test = reactive(content.quiz)
-/*{
-	questions: [
-		{
-			question: 'Этот инструмент называется ...',
-			image: 'https://ru.yougile.com/user-data/1a21877c-f54f-443d-afba-c33f02f2e0f8/%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B0.jpg',
-			answers: [
-				{
-					text: 'Инструмент для снятия изоляции',
-					right: false,
-				},
-				{
-					text: 'Кримпер для обжима наконечников НКИ',
-					right: true,
-				},
-				{
-					text: 'Кримпер для обжима наконечников НШВИ',
-					right: false,
-				},
-				{
-					text: 'Стриппер',
-					right: false,
-				},
-			]
-		},
-		{
-			question: 'Закончите предложение: «Сепарирование продуктов размола зерна по размерам при мукомольном производстве осуществляется в …».',
-			image: 'https://img.gazeta.ru/files3/938/17274938/RIA_8472601-pic_32ratio_1200x800-1200x800-24688.jpg',
-			answers: [
-				{
-					text: 'воздушно-ситовых сепараторах',
-					right: false
-				},
-				{
-					text: 'рассевах',
-					right: true
-				},
-				{
-					text: 'аспираторах',
-					right: false
-				},
-				{
-					text: 'дуаспираторах',
-					right: false
-				},
-			]
-		}
-	]
-})*/
+
 
 // Добавляем тех переменные
 for (let question of test.questions) {
