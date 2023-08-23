@@ -22,8 +22,8 @@ let imgUrl = (path) => { return new URL(path, import.meta.url) }
 
             <v-carousel hide-delimiters style="height: 80vh;">
                 <v-carousel-item v-for="slide, index in content.interactive.slides" :key="index" >
-                    <div class="h-100 w-100 d-flex justify-center">
-                        <img :src="imgUrl(slide)" class="h-100" alt="">
+                    <div class="w-100 h-100 d-flex justify-center align-center">
+                        <img :src="imgUrl(slide)" class="w-100" alt="">
                     </div>
                 </v-carousel-item>
             </v-carousel>
