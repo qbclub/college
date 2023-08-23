@@ -16,18 +16,18 @@ export default {
     type: "slides",
     video: "https://storage.yandexcloud.net/coks-video/150132010101.mp4",
     slides: [
-      "src/assets/slides/1.jpg",
-      "src/assets/slides/2.jpg",
-      "src/assets/slides/3.jpg",
-      "src/assets/slides/4.jpg",
-      "src/assets/slides/5.jpg",
-      "src/assets/slides/6.jpg",
-      "src/assets/slides/7.jpg",
-      "src/assets/slides/8.jpg",
-      "src/assets/slides/9.jpg",
-      "src/assets/slides/10.jpg",
-      "src/assets/slides/11.jpg",
-      "src/assets/slides/12.jpg"
+      "../assets/slides/1.jpg",
+      "../assets/slides/2.jpg",
+      "../assets/slides/3.jpg",
+      "../assets/slides/4.jpg",
+      "../assets/slides/5.jpg",
+      "../assets/slides/6.jpg",
+      "../assets/slides/7.jpg",
+      "../assets/slides/8.jpg",
+      "../assets/slides/9.jpg",
+      "../assets/slides/10.jpg",
+      "../assets/slides/11.jpg",
+      "../assets/slides/12.jpg"
     ]
   },
   test: {
@@ -362,9 +362,30 @@ export default {
     `,
   keywords: [
     {
-      word: "",
-      description: ""
+      word: "Заготовка",
+      description: "предмет производства, из которого путём дальнейшей обработки будет получена деталь или неразъёмная сборочная единица"
+    },
+    {
+      word: "Отливка",
+      description: "Процесс изготовления металлических изделий путем заливки расплавленного металла в полость специальной литейной формы."
+    },
+    {
+      word: "Поковка",
+      description: "промежуточное изделие металлургии, полуфабрикат, которое получается в результате деформации металла под давлением"
+    },
+    {
+      word: "Штамповка",
+      description: "процесс, в результате которого заготовки плоского проката — листы, ленты и полосы — изменяют свой размер и геометрическую форму."
+    },
+    {
+      word: "Точная вырубка",
+      description: "Получение заготовки вырубанием из листового материала."
+    },
+    {
+      word: "Прессование",
+      description: "Придание необходимой формы материалу путём выдавливания его через фильеру в форму."
     }
+    
   ],
   advice: `
   <h3 style="margin:8px">  Рекомендации для обучающегося (самостоятельная работа) </h3>

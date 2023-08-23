@@ -14,7 +14,7 @@
   },
   interactive: {
     type: "video",
-    video: "https://storage.yandexcloud.net/coks-video/150133010101.mp4",
+    video: "../assets150133010101.mp4",
     slides: [
       "src/assets/slides/1.jpg",
       "src/assets/slides/2.jpg",
