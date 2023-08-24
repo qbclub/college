@@ -12,7 +12,16 @@
     code: "01.01",
     name: "Основы слесарно - сборочных и электромонтажных работ"
   },
-  video: "/videos/130110010101.mp4",
+
+  interactive: {
+    type: "video",
+    video: "../assets/130110010101.mp4",
+    slides: [
+      "src/assets/slides/1.jpg",
+      "src/assets/slides/2.jpg",
+      "src/assets/slides/3.jpg"
+    ]
+  },
   test: {
     questions: [
       {

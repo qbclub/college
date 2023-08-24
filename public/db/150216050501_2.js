@@ -15,21 +15,21 @@ export default {
   interactive: {
     type: "slides",
     slides: [
-      "src/assets/slides/1.jpg",
-      "src/assets/slides/2.jpg",
-      "src/assets/slides/3.jpg",
-      "src/assets/slides/4.jpg",
-      "src/assets/slides/5.jpg",
-      "src/assets/slides/6.jpg",
-      "src/assets/slides/7.jpg",
-      "src/assets/slides/8.jpg",
-      "src/assets/slides/9.jpg",
-      "src/assets/slides/10.jpg",
-      "src/assets/slides/11.jpg",
-      "src/assets/slides/12.jpg",
-      "src/assets/slides/13.jpg",
-      "src/assets/slides/14.jpg",
-      "src/assets/slides/15.jpg"
+      "../assets/slides/1.jpg",
+      "../assets/slides/2.jpg",
+      "../assets/slides/3.jpg",
+      "../assets/slides/4.jpg",
+      "../assets/slides/5.jpg",
+      "../assets/slides/6.jpg",
+      "../assets/slides/7.jpg",
+      "../assets/slides/8.jpg",
+      "../assets/slides/9.jpg",
+      "../assets/slides/10.jpg",
+      "../assets/slides/11.jpg",
+      "../assets/slides/12.jpg",
+      "../assets/slides/13.jpg",
+      "../assets/slides/14.jpg",
+      "../assets/slides/15.jpg"
     ]
   },
   test: {

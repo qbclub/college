@@ -14,7 +14,7 @@ export default {
   },
   interactive: {
     type: "video",
-    video: "https://storage.yandexcloud.net/coks-video/220105010101.m4v",
+    video: "../assets/220105010101.mp4",
     slides: [
       "src/assets/slides/1.jpg",
       "src/assets/slides/2.jpg",
