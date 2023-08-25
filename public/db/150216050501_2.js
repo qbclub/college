@@ -321,7 +321,7 @@ export default {
             right: true
           },
           {
-            text: "фильтр",
+            text: "флокуляция",
             right: false
           }
         ]
@@ -334,7 +334,7 @@ export default {
             right: false
           },
           {
-            text: "фильтр",
+            text: "флокуляция",
             right: false
           },
           {
@@ -356,7 +356,7 @@ export default {
             right: false
           },
           {
-            text: "фильтр",
+            text: "флокуляция",
             right: false
           }
         ]
