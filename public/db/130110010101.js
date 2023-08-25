@@ -264,15 +264,173 @@ export default {
   quiz: {
     questions: [
       {
-        question: "",
-        image: "",
+        question: "Установите соответствие между внешним диэлектрика - 2 и наименованием.",
+        image: "../assets/images/1.jpg",
         answers: [
           {
-            text: "",
+            text: "Диэлектрик волокнистый",
+            right: false
+          },
+          {
+            text: "Диэлектрик жидкий",
+            right: false
+          },
+          {
+            text: "Диэлектрик слоистый",
+            right: true
+          },
+          {
+            text: "Диэлектрик керамический",
             right: false
           }
         ]
-      }
+      },
+      {
+        question: "Установите соответствие между внешним видом проводника - 1 и назначением.",
+        image: "../assets/images/2.jpg",
+        answers: [
+          {
+            text: "Монтажный провод гибкий",
+            right: false
+          },
+          {
+            text: "Монтажный провод жесткий",
+            right: false
+          },
+          {
+            text: "Силовой провод",
+            right: true
+          },
+          {
+            text: "Обмоточный провод ",
+            right: false
+          }
+        ]
+      },
+      {
+        question: "Установите соответствие между внешним видом проводника - 2 и назначением.",
+        image: "../assets/images/2.jpg",
+        answers: [
+          {
+            text: "Силовой провод",
+            right: false
+          },
+          {
+            text: "Обмоточный провод",
+            right: false
+          },
+          {
+            text: "Монтажный провод гибкий",
+            right: false
+          },
+          {
+            text: "Монтажный провод жесткий",
+            right: true
+          }
+        ]
+      },
+      {
+        question: "Установите соответствие между внешним видом проводника - 4 и маркой провода.",
+        image: "../assets/images/3.jpg",
+        answers: [
+          {
+            text: "Провод ПУНП 3х1,5",
+            right: false
+          },
+          {
+            text: "Провод АППВ 2х2.5",
+            right: false
+          },
+          {
+            text: "Провод ШВВП 2х1,5",
+            right: true
+          },
+          {
+            text: "Провод ПВС 2х1,5",
+            right: false
+          }
+        ]
+      },
+      {
+        question: "Установите соответствие между внешним видом монтажного провода - 1 и маркой провода.",
+        image: "../assets/images/4.jpg",
+        answers: [
+          {
+            text: "Провод ПВ-1 1,5 (ПуВ 1х1,5)",
+            right: false
+          },
+          {
+            text: "Провод АПВ 2.5",
+            right: false
+          },
+          {
+            text: "Провод ШВВП 2х1,5",
+            right: false
+          },
+          {
+            text: "Провод ПВ-3 1,5 (ПуГВ 1х1,5)",
+            right: true
+          }
+        ]
+      },
+      {
+        question: "Установите соответствие между цветом окрашиваемого элемента оборудования - 2 и принадлежащим фазе",
+        image: "../assets/images/5.jpg",
+        answers: [
+          {
+            text: "Фаза B",
+            right: true
+          },
+          {
+            text: "Фаза А",
+            right: false
+          },
+          {
+            text: "Фаза C",
+            right: false
+          }
+        ]
+      },
+      {
+        question: "Установите соответствие между кабелем -2 и его назначением",
+        image: "../assets/images/6.jpg",
+        answers: [
+          {
+            text: "Кабели связи",
+            right: false
+          },
+          {
+            text: "Кабели управления",
+            right: false
+          },
+          {
+            text: "Контрольные кабели",
+            right: true
+          },
+          {
+            text: "Радиочастотные кабели",
+            right: false
+          }
+        ]
+      },
+      {
+        question: "Подключите проводник - 3 к клеммам согласно требованиям по цветовой маркировке.",
+        image: "../assets/images/7.jpg",
+        answers: [
+          {
+            text: "L1",
+            right: true
+          },
+          {
+            text: "N",
+            right: false
+          },
+          {
+            text: "PE",
+            right: true
+          }
+        ]
+      },
     ]
   },
   contentinf: ` 
