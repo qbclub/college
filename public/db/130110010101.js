@@ -419,7 +419,7 @@ export default {
         answers: [
           {
             text: "L1",
-            right: true
+            right: false
           },
           {
             text: "N",
