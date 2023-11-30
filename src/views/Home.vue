@@ -61,7 +61,7 @@ watch(smallScreen, (smallScreen) => {
       <div class="main-left">
         <div class="nav">
 
-          <div class="nav-button-befor learning"></div>
+          <!-- <div class="nav-button-befor learning"></div> -->
 
           <div class="nav-button-learning">
             <div class="nav-button-title learning"> Освоение нового материала</div>
@@ -69,7 +69,7 @@ watch(smallScreen, (smallScreen) => {
             <div class="nav-button-icon learning">
 
               <div class="icon-wrapper">
-                <img src="../assets/icons/book.webp">
+                <img src="../assets/icons/book.svg">
               </div>
 
             </div>
@@ -78,32 +78,32 @@ watch(smallScreen, (smallScreen) => {
 
               <div class="description-text">
                 <div class="description-title">{{ content.theme }}</div>
-                <div class="description">Динамическая инфографика</div>
+                <div class="description"> {{   content.interactive.type ==  "slides"? "Динамическая инфографика": "Видеолекция" }}   </div>
 
               </div>
 
               <div class="description-buttons">
-                <img src="../assets/icons/advice.webp" @click="getDialog('advices')">
-                <img src="../assets/icons/play.webp" @click="routeTo('/content')">
+                <img src="../assets/icons/advice.svg" @click="getDialog('advices')">
+                <img src="../assets/icons/play.svg" @click="routeTo('/content')">
               </div>
 
             </div>
 
           </div>
 
-          <div class="nav-button-after learning"> </div>
+          <!-- <div class="nav-button-after learning"> </div> -->
 
         </div>
 
         <div class="nav">
-          <div class="nav-button-befor use"></div>
+          <!-- <div class="nav-button-befor use"></div> -->
           <div class="nav-button-use ">
             <div class="nav-button-title use"> Применение изученного материала</div>
 
             <div class="nav-button-icon use">
 
               <div class="icon-wrapper">
-                <img src="../assets/icons/use.webp">
+                <img src="../assets/icons/use.svg">
               </div>
 
             </div>
@@ -116,24 +116,24 @@ watch(smallScreen, (smallScreen) => {
               </div>
 
               <div class="description-buttons">
-                <img src="../assets/icons/advice.webp" @click="getDialog('advices')">
-                <img src="../assets/icons/play.webp" @click="routeTo('/quiz')">
+                <img src="../assets/icons/advice.svg" @click="getDialog('advices')">
+                <img src="../assets/icons/play.svg" @click="routeTo('/quiz')">
               </div>
 
             </div>
 
           </div>
 
-          <div class="nav-button-after use"> </div>
+          <!-- <div class="nav-button-after use"> </div> -->
         </div>
 
         <div class="nav ">
-          <div class="nav-button-befor test"></div>
+          <!-- <div class="nav-button-befor test"></div> -->
           <div class="nav-button-test ">
             <div class="nav-button-title test"> Диагностика приобретенных знаний, умений, навыков</div>
             <div class="nav-button-icon test">
               <div class="icon-wrapper">
-                <img src="../assets/icons/test.webp">
+                <img src="../assets/icons/test.svg">
               </div>
             </div>
             <div class="nav-button-description ">
@@ -142,14 +142,14 @@ watch(smallScreen, (smallScreen) => {
                 <div class="description">Интерактивный тренажер по выполнению заданий</div>
               </div>
               <div class="description-buttons">
-                <img src="../assets/icons/advice.webp" @click="getDialog('advices')">
-                <img src="../assets/icons/play.webp" @click="routeTo('/test')">
+                <img src="../assets/icons/advice.svg" @click="getDialog('advices')">
+                <img src="../assets/icons/play.svg" @click="routeTo('/test')">
               </div>
             </div>
           </div>
-          <div class="nav-button-after test">
+          <!-- <div class="nav-button-after test">
 
-          </div>
+          </div> -->
         </div>
       </div>
 
@@ -160,10 +160,10 @@ watch(smallScreen, (smallScreen) => {
         <div class="fgos-mdk-code">
           <div class="fgos-title ">ФГОС СПО {{ content.fgos.code }}</div>
           <div class="fgos-name">{{ content.fgos.name }}</div>
-          <div class="mdk-title">ПМ {{ content.pm.code }}</div>
-          <div class="mdk-name">{{ content.pm.name }}</div>
-          <div class="mdk-title">МДКн {{ content.mdk.code }}</div>
-          <div class="mdk-name">{{ content.mdk.name }}</div>
+          <!-- <div class="mdk-title">ПМ {{ content.pm.code }}</div>
+          <div class="mdk-name">{{ content.pm.name }}</div> -->
+          <!-- <div class="mdk-title">МДКн {{ content.mdk.code }}</div>
+          <div class="mdk-name">{{ content.mdk.name }}</div> -->
         </div>
       </div>
 
@@ -173,8 +173,7 @@ watch(smallScreen, (smallScreen) => {
       <v-dialog v-model="dialog" max-width="800" max-height="500">
         <div style="position:relative;">
           <v-btn @click="dialog = false" icon="mdi-close" size="small" color="#456DB1" style="color: white; "
-         class="close-btn"
-          >
+            class="close-btn">
           </v-btn>
         </div>
         <v-card class="pa-4">
@@ -210,12 +209,17 @@ watch(smallScreen, (smallScreen) => {
       cursor: pointer;
       width: 140px;
       height: 50px;
-      border-left: 5px solid #473a53;
+      // border-left: 5px solid #473a53;
       font-size: clamp(1rem, 0.7059rem + 0.4706vw, 1.25rem);
       padding-left: 15px;
       margin-left: 8px;
       line-height: 1.1;
-      color: #473a53;
+      color: rgba(0, 0, 0, 0.6);
+      transition: all 0.5s ease;
+
+      &:hover {
+        transform: scale(1.05)
+      }
 
     }
   }
@@ -234,11 +238,12 @@ watch(smallScreen, (smallScreen) => {
   align-items: center;
   padding: 0 25px;
   box-sizing: border-box;
-  height: 150px;
+  height: 100px;
   background-color: #fff;
-  border-top: 5px solid #473b53;
-  border-bottom: 5px solid #473b53;
+  // border-top: 5px solid #473b53;
+  // border-bottom: 5px solid #473b53;
   justify-content: space-between;
+  margin-bottom: 12px;
 
   .theme-center {
     text-transform: uppercase;
@@ -282,15 +287,15 @@ watch(smallScreen, (smallScreen) => {
       display: flex;
 
       .learning {
-        background: #456DB1;
+        background: #668CC4
       }
 
       .use {
-        background: #223a76;
+        background: #4377C4
       }
 
       .test {
-        background: #483a53;
+        background: #114189;
       }
 
       .nav-button-befor {
@@ -322,7 +327,7 @@ watch(smallScreen, (smallScreen) => {
           height: 100%;
           border-bottom-right-radius: 50%;
           border-top-right-radius: 50%;
-          box-shadow: 3px -5px 3px 0 rgba(0, 0, 0, .2);
+
           display: flex;
           justify-content: center;
           align-items: center;
@@ -336,9 +341,10 @@ watch(smallScreen, (smallScreen) => {
             justify-content: center;
             align-items: center;
 
-            box-shadow: inset 3px -5px 3px 0 rgba(0, 0, 0, .2);
+
 
             img {
+              opacity: 0.6;
               width: 60%;
             }
           }
@@ -378,8 +384,14 @@ watch(smallScreen, (smallScreen) => {
             color: rgba(0, 0, 0, 0.6);
 
             img {
-              width: 80%;
+              width: 90%;
               cursor: pointer;
+              opacity: 0.6;
+              transition: all 0.5s ease;
+
+              &:hover {
+                transform: scale(1.1)
+              }
             }
 
           }
@@ -388,17 +400,17 @@ watch(smallScreen, (smallScreen) => {
 
       }
 
-      .nav-button-learning {
-        border: 2px solid #456DB1;
-      }
+      // .nav-button-learning {
+      //   border: 1px solid #124089;
+      // }
 
-      .nav-button-use {
-        border: 2px solid #223a76;
-      }
+      // .nav-button-use {
+      //   border: 1px solid #124089;
+      // }
 
-      .nav-button-test {
-        border: 2px solid #483a53;
-      }
+      // .nav-button-test {
+      //   border: 1px solid #124089
+      // }
 
       .nav-button-after {
         width: 45px;
@@ -426,7 +438,7 @@ watch(smallScreen, (smallScreen) => {
     padding: 20px;
 
     img {
-      width: 100%;
+      width: 60%;
     }
   }
 
@@ -441,14 +453,14 @@ watch(smallScreen, (smallScreen) => {
     color: rgba(0, 0, 0, 0.6);
     margin: 10px 0;
 
-    &:after {
-      content: "";
-      display: block;
-      width: 40%;
-      height: 4px;
-      background-color: rgba(71, 58, 83, .85);
+    // &:after {
+    //   content: "";
+    //   display: block;
+    //   width: 40%;
+    //   height: 4px;
+    //   background-color: rgba(71, 58, 83, .85);
 
-    }
+    // }
   }
 
   .fgos-name,
@@ -458,7 +470,8 @@ watch(smallScreen, (smallScreen) => {
   }
 
 }
-.close-btn{
+
+.close-btn {
   position: absolute;
   right: -20px;
   top: -20px;

@@ -97,15 +97,15 @@ watch(done, (value) => {
 <template>
 	<div class="container">
 		<div class="w-100 d-flex flex-column">
-			<div class="w-100 font-weight-light pt-4 pr-8 pb-4 pl-8 rounded-lg"
-				style="color: #483a53; background: #e6dcee;">
+			<div class="w-100 font-weight-light pt-4 pr-8 pb-4 pl-8 rounded-lg text-center"
+				style="color:black; background: white;">
 				{{ content.theme }}
 			</div>
 
 			<div v-if="!done" class="w-100 pa-4 d-flex flex-row align-center">
-				<div class="text-h3" style="color: #5a335a;">?</div>
+			
 
-				<div class="ml-3 font-weight-thin">
+				<div class="ml-3 text-h6">
 					{{ current_step }}. {{ current_question.question }}
 				</div>
 			</div>
@@ -145,7 +145,7 @@ watch(done, (value) => {
 		<v-spacer />
 
 		<div class="w-100 pa-4 d-flex flex-row justify-center align-center flex-wrap"
-			style="background: #5a335a; position: sticky; bottom: 8px; column-gap: 30px; row-gap: 8px;">
+			style="background: #456DB1; position: sticky; bottom: 8px; column-gap: 30px; row-gap: 8px;">
 			<div class="text-white" style="font-size: 20px; font-weight: 500;">
 				{{ timer }}
 			</div>

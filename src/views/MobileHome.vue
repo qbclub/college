@@ -33,8 +33,8 @@ let routeTo = (path) => {
         <div class="top-block-left" @click="getDialog('keyWords')"> Ключевые <br> слова</div>
       </div>
 
-      <div class="top-block-right">
-        цифровой образовательный контент
+      <div class="top-block-right text-center pa-4">
+        цифровой образовательный <br> контент
       </div>
 
     </div>
@@ -57,15 +57,15 @@ let routeTo = (path) => {
 
             <div>
               <div>Освоение нового материала</div>
-              <div class="description">Динамическая инфографика</div>
+              <div class="description"> {{   content.interactive.type ==  "slides"? "Динамическая инфографика": "Видеолекция" }}   </div>
             </div>
 
 
 
             <div class="nav-button-description ">
               <div class="description-buttons">
-                <img src="../assets/icons/advice.webp" class="mb-1" @click="getDialog('advices')">
-                <img src="../assets/icons/play.webp" @click="routeTo('/content')">
+                <img src="../assets/icons/advice.svg" class="mb-1" @click="getDialog('advices')">
+                <img src="../assets/icons/play.svg" @click="routeTo('/content')">
               </div>
             </div>
 
@@ -86,8 +86,8 @@ let routeTo = (path) => {
 
             <div class="nav-button-description ">
               <div class="description-buttons">
-                <img src="../assets/icons/advice.webp" class="mb-1" @click="getDialog('advices')">
-                <img src="../assets/icons/play.webp" @click="routeTo('/quiz')">
+                <img src="../assets/icons/advice.svg" class="mb-1" @click="getDialog('advices')">
+                <img src="../assets/icons/play.svg" @click="routeTo('/quiz')">
               </div>
             </div>
 
@@ -104,8 +104,8 @@ let routeTo = (path) => {
 
             <div class="nav-button-description">
               <div class="description-buttons">
-                <img src="../assets/icons/advice.webp" class="mb-1" @click="getDialog('advices')">
-                <img src="../assets/icons/play.webp" @click="routeTo('/test')">
+                <img src="../assets/icons/advice.svg" class="mb-1" @click="getDialog('advices')">
+                <img src="../assets/icons/play.svg" @click="routeTo('/test')">
               </div>
             </div>
 
@@ -117,10 +117,10 @@ let routeTo = (path) => {
         <div class="fgos-mdk-code">
           <div class="fgos-title ">ФГОС СПО {{ content.fgos.code }}</div>
           <div class="fgos-name">{{ content.fgos.name }}</div>
-          <div class="mdk-title">ПМ {{ content.pm.code }}</div>
+          <!-- <div class="mdk-title">ПМ {{ content.pm.code }}</div>
           <div class="mdk-name">{{ content.pm.name }}</div>
           <div class="mdk-title">МДКн {{ content.mdk.code }}</div>
-          <div class="mdk-name">{{ content.mdk.name }}</div>
+          <div class="mdk-name">{{ content.mdk.name }}</div> -->
         </div>
       </div>
 
@@ -159,7 +159,7 @@ let routeTo = (path) => {
       cursor: pointer;
       width: 120px;
       height: 50px;
-      border-left: 3px solid #473a53;
+      // border-left: 3px solid #473a53;
       font-size: clamp(1rem, 0.7059rem + 0.4706vw, 1.25rem);
       padding-left: 10px;
       margin-left: 0px;
@@ -170,7 +170,7 @@ let routeTo = (path) => {
   }
 
   .top-block-right {
-
+    text-align: left;
     text-transform: uppercase;
     font-size: clamp(0.75rem, 0.4432rem + 1.0909vw, 1.125rem);
     color: rgba(0, 0, 0, 0.6);
@@ -185,14 +185,14 @@ let routeTo = (path) => {
   box-sizing: border-box;
   height: 100px;
   background-color: #fff;
-  border-top: 3px solid #473b53;
-  border-bottom: 3px solid #473b53;
+  // border-top: 3px solid #473b53;
+  // border-bottom: 3px solid #473b53;
 
   .theme-center {
     padding-left: 8px;
     text-transform: uppercase;
     line-height: 1;
-    color: #473a53;
+    color: rgba(0, 0, 0, 0.6);
     font-size: clamp(1rem, 0.5909rem + 1.4545vw, 1.5rem);
   }
 
@@ -217,7 +217,7 @@ let routeTo = (path) => {
   .main-left {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
 
     .nav {
       margin: 10px 0;
@@ -246,8 +246,9 @@ let routeTo = (path) => {
             color: rgba(0, 0, 0, 0.6);
 
             img {
-              width: 80%;
+              width: 90%;
               cursor: pointer;
+              opacity: 0.6;
             }
 
           }
@@ -256,17 +257,17 @@ let routeTo = (path) => {
 
       }
 
-      .nav-button-learning {
-        border: 2px solid #456DB1;
-      }
+      // .nav-button-learning {
+      //   border: 2px solid #456DB1;
+      // }
 
-      .nav-button-use {
-        border: 2px solid #223a76;
-      }
+      // .nav-button-use {
+      //   border: 2px solid #223a76;
+      // }
 
-      .nav-button-test {
-        border: 2px solid #483a53;
-      }
+      // .nav-button-test {
+      //   border: 2px solid #483a53;
+      // }
 
 
 
@@ -298,7 +299,7 @@ let routeTo = (path) => {
 
   .fgos-name,
   .mdk-name {
-    color: #473a53;
+    color: rgba(0, 0, 0, 0.6);
     font-size: clamp(1rem, 0.3382rem + 1.0588vw, 1.5625rem);
     margin-bottom: 20px;
   }
@@ -310,7 +311,8 @@ let routeTo = (path) => {
   color: rgba(0, 0, 0, .3);
   font-size: clamp(0.875rem, 0.4338rem + 0.7059vw, 1.25rem);
 }
-.close-btn{
+
+.close-btn {
   position: absolute;
   right: 0px;
   top: 0px;
