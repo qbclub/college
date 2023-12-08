@@ -3,6 +3,7 @@ import { ref, reactive, computed, watch } from 'vue'
 import { useRoute } from 'vue-router';
 import { useDB } from '../stores/db';
 import Answer from './Answer.vue';
+import AnswerInput from './AnswerInput.vue';
 import Result from './Result.vue';
 
 let code = useRoute().query.code
@@ -14,8 +15,15 @@ let test = reactive(content.test)
 for (let question of test.questions) {
 	question.entered = false
 	
-	for (let answer of question.answers) {
-		answer.selected = false
+	if (question.type === 'input') {
+		for (let answer of question.answers) {
+			answer.value = ''
+		}
+	}
+	else {
+		for (let answer of question.answers) {
+			answer.selected = false
+		}
 	}
 }
 
@@ -45,7 +53,7 @@ function back() {
 	current_step.value--
 }
 
-function select(index) {
+function select(index, value = null) {
 	// Если radio и что-то введено, значит очищаем что введено
 	if (current_question.value.type === 'once' && current_question.value.answers.some(item => item.selected) && !current_question.value.entered)
 		test.questions[current_step.value-1].answers.forEach(answer => answer.selected = false)
@@ -64,15 +72,19 @@ function compareRightAnswers(questions) {
 
 	// Считаем количество введённых или правильных ответов
 	questions.forEach(question => {
+		if (question.type === 'input')
+			return entered_amount.value += question.answers.length
 		entered_amount.value += question.answers.filter(answer => answer.selected || answer.right).length
 	})
 
 	// Считаем количество правильно введенных ответов
 	questions.forEach(question => {
+		if (question.type === 'input')
+			return right_entered_amount.value += question.answers.filter(answer => answer.value.trim().toLowerCase() === answer.answer).length
 		right_entered_amount.value += question.answers.filter(answer => answer.selected && answer.right).length
 	})
 }
-watch(test.questions, questions => compareRightAnswers(questions))
+watch(test.questions, questions => { compareRightAnswers(questions); console.log(test.questions) })
 
 
 let timer = ref('00:00')
@@ -134,9 +146,18 @@ watch(done, (value) => {
 							v-for="(answer, index) in current_question.answers"
 							:key="index"
 						>
-							<Answer 
-								@click="select(index)"
+							<AnswerInput
+								v-if="current_question.type === 'input'"
 								:answer="answer"
+							>
+								<template v-slot:input>
+									<input class="border"  type="text" v-model="test.questions[current_step-1].answers[index].value">
+								</template>
+							</AnswerInput>
+
+							<Answer 
+								v-else
+								@click="select(index)"
 								:entered="current_question.entered"
 							/>
 						</v-col>
@@ -178,7 +199,7 @@ watch(done, (value) => {
 			<v-btn 
 				v-if="!done && !current_question.entered"
 				@click="answerQuestion()"
-				:disabled="current_question.answers.every(item => !item.selected)"
+				:disabled="current_question.type == 'input' ? current_question.answers.every(answer => !answer.value.length) : current_question.answers.every(item => !item.selected)"
 				:ripple="false"
 			>
 				Ответить
@@ -210,5 +231,10 @@ watch(done, (value) => {
 	margin: 20px auto;
 	max-width: 900px;
 	min-height: calc(100vh - 40px);
+}
+
+.border {
+	border: 1px solid #666666;
+	text-align: center;
 }
 </style>
