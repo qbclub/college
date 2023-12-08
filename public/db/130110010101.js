@@ -40,6 +40,16 @@ export default {
   test: {
     questions: [
       {
+        question: "dfsgdfgfd",
+        type: "input",
+        answers: [
+          {
+            text: "Сплав железа с углеродом, в котором содержание {} углерода не превышает 2,14% называется ",
+            answer: "сталь",
+          },
+        ]
+      },
+      {
         question: "Какой из перечисленных материалов не относится к проводникам?",
         type: "once",
         answers: [
