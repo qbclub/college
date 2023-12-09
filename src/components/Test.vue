@@ -65,6 +65,10 @@ function select(index, value = null) {
 	answer.selected = !answer.selected
 }
 
+function compareInput(input, right) {
+  return input.trim().toLowerCase() === right
+}
+
 // Обновляем количество введенных и правильно введенных
 function compareRightAnswers(questions) {
 	right_entered_amount.value = 0
@@ -80,7 +84,7 @@ function compareRightAnswers(questions) {
 	// Считаем количество правильно введенных ответов
 	questions.forEach(question => {
 		if (question.type === 'input')
-			return right_entered_amount.value += question.answers.filter(answer => answer.value.trim().toLowerCase() === answer.answer).length
+			return right_entered_amount.value += question.answers.filter(answer => compareInput(answer.value, answer.answer)).length
 		right_entered_amount.value += question.answers.filter(answer => answer.selected && answer.right).length
 	})
 }
@@ -149,9 +153,10 @@ watch(done, (value) => {
 							<AnswerInput
 								v-if="current_question.type === 'input'"
 								:answer="answer"
+								:entered="current_question.entered"
 							>
 								<template v-slot:input>
-									<input class="border"  type="text" v-model="test.questions[current_step-1].answers[index].value">
+									<input :class="{border: true, 'bg-green-lighten-3': current_question.entered && compareInput(answer.value, answer.answer), 'bg-red-lighten-3': current_question.entered && !compareInput(answer.value, answer.answer)}" type="text" v-model="test.questions[current_step-1].answers[index].value">
 								</template>
 							</AnswerInput>
 
