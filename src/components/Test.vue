@@ -158,6 +158,7 @@ watch(done, (value) => {
 							<Answer 
 								v-else
 								@click="select(index)"
+                :answer="answer"
 								:entered="current_question.entered"
 							/>
 						</v-col>
