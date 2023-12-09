@@ -66,7 +66,7 @@ function select(index, value = null) {
 }
 
 function compareInput(input, right) {
-  return input.trim().toLowerCase() === right
+  return (new RegExp(right)).test(input.trim().toLowerCase())
 }
 
 // Обновляем количество введенных и правильно введенных
@@ -156,7 +156,7 @@ watch(done, (value) => {
 								:entered="current_question.entered"
 							>
 								<template v-slot:input>
-									<input :class="{border: true, 'bg-green-lighten-3': current_question.entered && compareInput(answer.value, answer.answer), 'bg-red-lighten-3': current_question.entered && !compareInput(answer.value, answer.answer)}" type="text" v-model="test.questions[current_step-1].answers[index].value">
+									<input :class="{border: true, 'bg-green-lighten-3': current_question.entered && compareInput(answer.value, answer.answer), 'bg-red-lighten-3': current_question.entered && !compareInput(answer.value, answer.answer)}" type="text" v-model="test.questions[current_step-1].answers[index].value" :disabled="current_question.entered">
 								</template>
 							</AnswerInput>
 
