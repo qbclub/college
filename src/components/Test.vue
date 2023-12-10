@@ -79,6 +79,8 @@ function compareRightAnswers(questions) {
 	questions.forEach(question => {
 		if (question.type === 'input')
 			return entered_amount.value += question.answers.length
+		if (question.type === 'sort')
+			return entered_amount.value += question.answers[0].answer.length	
 		entered_amount.value += question.answers.filter(answer => answer.selected || answer.right).length
 	})
 
@@ -86,10 +88,12 @@ function compareRightAnswers(questions) {
 	questions.forEach(question => {
 		if (question.type === 'input')
 			return right_entered_amount.value += question.answers.filter(answer => compareInput(answer.value, answer.answer)).length
+		if (question.type === 'sort')
+			return right_entered_amount.value += question.answers[0].text.filter((answer, index) => answer === question.answers[0].answer[index]).length
 		right_entered_amount.value += question.answers.filter(answer => answer.selected && answer.right).length
 	})
 }
-watch(test.questions, questions => { compareRightAnswers(questions); console.log(test.questions) })
+watch(test.questions, questions => compareRightAnswers(questions))
 
 
 let timer = ref('00:00')
@@ -146,8 +150,7 @@ watch(done, (value) => {
 								</template>
 							</AnswerInput>
 
-							<Sort v-if="current_question.type === 'sort'" :answer="answer"  :entered="current_question.entered"
-								/>
+							<Sort v-if="current_question.type === 'sort'" :answer="answer" :entered="current_question.entered" />
 
 							<Answer v-if="current_question.type === 'once'" @click="select(index)" :answer="answer" :entered="current_question.entered" />
 						</v-col>
@@ -173,7 +176,7 @@ watch(done, (value) => {
 			</v-btn>
 
 			<v-btn v-if="!done && !current_question.entered" @click="answerQuestion()"
-				:disabled="current_question.type == 'input' ? current_question.answers.every(answer => !answer.value.length) : current_question.answers.every(item => !item.selected)"
+				:disabled="current_question.type === 'sort' ? false : current_question.type == 'input' ? current_question.answers.every(answer => !answer.value.length) : current_question.answers.every(item => !item.selected)"
 				:ripple="false">
 				Ответить
 			</v-btn>
