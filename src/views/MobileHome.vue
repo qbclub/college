@@ -115,7 +115,7 @@ let routeTo = (path) => {
 
       <div class="main-right">
         <div class="fgos-mdk-code">
-          <div class="fgos-title ">ФГОС СПО {{ content.fgos.code }}</div>
+          <div class="fgos-title ">ПОП-П {{ content.fgos.code }}</div>
           <div class="fgos-name">{{ content.fgos.name }}</div>
           <!-- <div class="mdk-title">ПМ {{ content.pm.code }}</div>
           <div class="mdk-name">{{ content.pm.name }}</div>

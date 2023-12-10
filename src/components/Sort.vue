@@ -19,16 +19,13 @@ function getURL(url) {
 <template>
     <v-row>
         <v-col :cols="answer.images ? 6 : 12">
-            <draggable v-model="props.answer.text" tag="ol" :animation="300">
+            <draggable v-model="props.answer.text" tag="ol" :animation="300" class="h-100 d-flex flex-column justify-space-around">
                 <template #item="{ element: text, index }">
-                    <div 
-                        :class="{
-                            'w-100 font-weight-light pa-4 pl-8 ma-4 rounded-lg text-center': true, 
-                            'bg-green-lighten-2': props.entered && text === props.answer.answer[index],
-                            'bg-red-lighten-2': props.entered && text !== props.answer.answer[index],
-                        }"
-                        style="color:black; background: white;"
-                    >
+                    <div :class="{
+                        'w-100 font-weight-light pa-4 pl-8 mb-4 mt-4 rounded-lg text-center': true,
+                        'bg-green-lighten-2': props.entered && text === props.answer.answer[index],
+                        'bg-red-lighten-2': props.entered && text !== props.answer.answer[index],
+                    }" style="color:black; background: white; cursor: all-scroll;">
                         <li>{{ text }}</li>
                     </div>
                 </template>
@@ -37,8 +34,10 @@ function getURL(url) {
 
         <v-col v-if="answer.images" cols="6">
             <v-row class="flex-column">
-                <v-col class="ml-4 d-flex justify-end" v-for="image in answer.images">
-                    <img :src="getURL(image)" width="200" />
+                <v-col class="text-center" v-for="image in answer.images">
+                  
+                        <img :src="getURL(image)" style="width:50%" />
+            
                 </v-col>
             </v-row>
         </v-col>
