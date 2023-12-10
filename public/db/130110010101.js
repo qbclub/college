@@ -284,6 +284,18 @@ export default {
   quiz: {
     questions: [
       {
+        question: 'Установите соответствие типов дефектов  кристаллического строения тел',
+        type: 'sort',
+        image: '',
+        answers: [
+          {
+            text: ["поверхностные", "точечные", "линейные"],
+            answer: ["точечные", "линейные", "поверхностные"],
+            images: ["../assets/images/sort3.png", "../assets/images/sort2.png", "../assets/images/sort1.png"]
+          }
+        ]
+      },
+      {
         question: "Установите соответствие между внешним диэлектрика и наименованием.",
         image: "../assets/images/1.jpg",
         answers: [

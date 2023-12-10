@@ -4,19 +4,26 @@ import { useRoute } from 'vue-router';
 import { useDB } from '../stores/db';
 import Answer from './Answer.vue';
 import Result from './Result.vue';
+import Sort from './Sort.vue';
 
 let code = useRoute().query.code
 const content = await useDB().getFromCode(code)
 
 let test = reactive(content.quiz)
 
-
 // Добавляем тех переменные
 for (let question of test.questions) {
 	question.entered = false
 
-	for (let answer of question.answers) {
-		answer.selected = false
+	if (question.type === 'input') {
+		for (let answer of question.answers) {
+			answer.value = ''
+		}
+	}
+	else {
+		for (let answer of question.answers) {
+			answer.selected = false
+		}
 	}
 }
 
@@ -47,13 +54,20 @@ function back() {
 	current_step.value--
 }
 
-function select(index) {
+function select(index, value = null) {
+	// Если radio и что-то введено, значит очищаем что введено
+	if (current_question.value.type === 'once' && current_question.value.answers.some(item => item.selected) && !current_question.value.entered)
+		test.questions[current_step.value - 1].answers.forEach(answer => answer.selected = false)
+
 	if (current_question.value.entered)
 		return
 
-	test.questions[current_step.value - 1].answers.forEach(answer => answer.selected = false)
 	let answer = test.questions[current_step.value - 1].answers[index]
 	answer.selected = !answer.selected
+}
+
+function compareInput(input, right) {
+	return (new RegExp(right)).test(input.trim().toLowerCase())
 }
 
 // Обновляем количество введенных и правильно введенных
@@ -63,11 +77,19 @@ function compareRightAnswers(questions) {
 
 	// Считаем количество введённых или правильных ответов
 	questions.forEach(question => {
+		if (question.type === 'input')
+			return entered_amount.value += question.answers.length
+		if (question.type === 'sort')
+			return entered_amount.value += question.answers[0].answer.length	
 		entered_amount.value += question.answers.filter(answer => answer.selected || answer.right).length
 	})
 
 	// Считаем количество правильно введенных ответов
 	questions.forEach(question => {
+		if (question.type === 'input')
+			return right_entered_amount.value += question.answers.filter(answer => compareInput(answer.value, answer.answer)).length
+		if (question.type === 'sort')
+			return right_entered_amount.value += question.answers[0].text.filter((answer, index) => answer === question.answers[0].answer[index]).length
 		right_entered_amount.value += question.answers.filter(answer => answer.selected && answer.right).length
 	})
 }
@@ -118,7 +140,7 @@ watch(done, (value) => {
 		<v-fade-transition leave-absolute hide-on-leave>
 
 			<v-row v-if="!done" class="h-100 mt-4 pb-4" style="width: 85%;">
-				<v-col cols="12" class="d-flex justify-center">
+				<v-col v-if="current_question.type !== 'sort'" cols="12" class="d-flex justify-center">
 					<v-fade-transition leave-absolute>
 
 						<img :src="imgUrl" style="max-height: 40vh; max-width: 90%;" />
@@ -128,8 +150,10 @@ watch(done, (value) => {
 				<v-col>
 					<v-row>
 						<v-fade-transition group>
-							<v-col v-for="(answer, index) in current_question.answers" :key="index" cols="12" lg="6">
-								<Answer @click="select(index)" :answer="answer" :entered="current_question.entered"  class="h-100"/>
+							<v-col v-for="(answer, index) in current_question.answers" :key="index" :cols="current_question.type && current_question.type === 'sort' ? 12 : 6">
+								<Sort v-if="current_question.type === 'sort'" :answer="answer" :entered="current_question.entered" />
+
+								<Answer v-else @click="select(index)" :answer="answer" :entered="current_question.entered"  class="h-100"/>
 							</v-col>
 						</v-fade-transition>
 					</v-row>
@@ -155,7 +179,7 @@ watch(done, (value) => {
 			</v-btn>
 
 			<v-btn v-if="!done && !current_question.entered" @click="answerQuestion()"
-				:disabled="current_question.answers.every(item => !item.selected)" :ripple="false">
+				:disabled="current_question.type === 'sort' ? false : current_question.answers.every(item => !item.selected)" :ripple="false">
 				Ответить
 			</v-btn>
 

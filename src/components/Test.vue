@@ -150,9 +150,9 @@ watch(done, (value) => {
 								</template>
 							</AnswerInput>
 
-							<Sort v-if="current_question.type === 'sort'" :answer="answer" :entered="current_question.entered" />
+							<Sort v-else-if="current_question.type === 'sort'" :answer="answer" :entered="current_question.entered" />
 
-							<Answer v-if="current_question.type === 'once'" @click="select(index)" :answer="answer" :entered="current_question.entered" />
+							<Answer v-else @click="select(index)" :answer="answer" :entered="current_question.entered" />
 						</v-col>
 					</v-fade-transition>
 				</v-row>
