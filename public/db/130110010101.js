@@ -17,26 +17,26 @@ export default {
     type: "slides",
     video: "",
     slides: [
-        "../assets/slides/1.jpg", 
-        "../assets/slides/2.jpg", 
-        "../assets/slides/3.jpg", 
-        "../assets/slides/4.jpg", 
-        "../assets/slides/5.jpg", 
-        "../assets/slides/6.jpg", 
-        "../assets/slides/7.jpg", 
-        "../assets/slides/8.jpg", 
-        "../assets/slides/9.jpg", 
-        "../assets/slides/10.jpg", 
-        "../assets/slides/11.jpg", 
-        "../assets/slides/12.jpg", 
-        "../assets/slides/13.jpg", 
-        "../assets/slides/14.jpg", 
-        "../assets/slides/15.jpg", 
-        "../assets/slides/16.jpg", 
-        "../assets/slides/17.jpg",
-        "../assets/slides/18.jpg"
+      "../assets/slides/1.jpg",
+      "../assets/slides/2.jpg",
+      "../assets/slides/3.jpg",
+      "../assets/slides/4.jpg",
+      "../assets/slides/5.jpg",
+      "../assets/slides/6.jpg",
+      "../assets/slides/7.jpg",
+      "../assets/slides/8.jpg",
+      "../assets/slides/9.jpg",
+      "../assets/slides/10.jpg",
+      "../assets/slides/11.jpg",
+      "../assets/slides/12.jpg",
+      "../assets/slides/13.jpg",
+      "../assets/slides/14.jpg",
+      "../assets/slides/15.jpg",
+      "../assets/slides/16.jpg",
+      "../assets/slides/17.jpg",
+      "../assets/slides/18.jpg"
     ]
-},
+  },
   test: {
     questions: [
       {
@@ -46,6 +46,32 @@ export default {
           {
             text: "Сплав железа с углеродом, в котором содержание {} углерода не превышает 2,14% называется ",
             answer: "сталь",
+          },
+        ]
+      },
+      {
+        question: "Установите порядок  технологического процесса термической обработки изделий из металлов и сплавов",
+        type: "parity",
+        answers: [
+          {
+            text: [
+              {
+                content: 'точечные',
+                img: ''
+
+              },
+              {
+                content: 'линейные',
+                img: ''
+              },
+              {
+                content: 'поверхностные',
+
+                img: ''
+              }
+
+            ],
+            answer: ['точечные', 'линейные', 'поверхностные'],
           },
         ]
       },
