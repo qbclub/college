@@ -36,7 +36,7 @@ function getURL(url) {
             <v-row class="flex-column">
                 <v-col class="text-center" v-for="image in answer.images">
                   
-                        <img :src="getURL(image)" style="width:50%" />
+                        <img :src="getURL(image)" style="width:50%; user-drag: none;"/>
             
                 </v-col>
             </v-row>

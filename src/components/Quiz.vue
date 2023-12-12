@@ -143,7 +143,7 @@ watch(done, (value) => {
 				<v-col v-if="current_question.type !== 'sort'" cols="12" class="d-flex justify-center">
 					<v-fade-transition leave-absolute>
 
-						<img :src="imgUrl" style="max-height: 40vh; max-width: 90%;" />
+						<img :src="imgUrl" style="max-height: 40vh; max-width: 90%; user-drag: none;" />
 					</v-fade-transition>
 				</v-col>
 
