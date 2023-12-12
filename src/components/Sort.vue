@@ -23,8 +23,8 @@ function getURL(url) {
                 <template #item="{ element: text, index }">
                     <div :class="{
                         'w-100 font-weight-light pa-4 pl-8 mb-4 mt-4 rounded-lg text-center': true,
-                        'bg-green-lighten-2': props.entered && text === props.answer.answer[index],
-                        'bg-red-lighten-2': props.entered && text !== props.answer.answer[index],
+                        'bg-green-lighten-4': props.entered && text === props.answer.answer[index],
+                        'bg-red-lighten-4': props.entered && text !== props.answer.answer[index],
                     }" style="color:black; background: white; cursor: all-scroll;">
                         <li>{{ text }}</li>
                     </div>

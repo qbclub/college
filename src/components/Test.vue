@@ -138,7 +138,7 @@ watch(done, (value) => {
 		<v-fade-transition leave-absolute hide-on-leave>
 			<div v-if="!done" class="h-100 mt-4 pb-4" style="width: 85%;">
 				<v-row class="flex-column" style="margin: auto;">
-					<v-fade-transition group>
+					<!-- <v-fade-transition group> -->
 						<v-col v-for="(answer, index) in current_question.answers" :key="index">
 							<AnswerInput v-if="current_question.type === 'input'" :answer="answer"
 								:entered="current_question.entered">
@@ -154,7 +154,7 @@ watch(done, (value) => {
 
 							<Answer v-else @click="select(index)" :answer="answer" :entered="current_question.entered" />
 						</v-col>
-					</v-fade-transition>
+					<!-- </v-fade-transition> -->
 				</v-row>
 			</div>
 		</v-fade-transition>

@@ -141,21 +141,21 @@ watch(done, (value) => {
 
 			<v-row v-if="!done" class="h-100 mt-4 pb-4" style="width: 85%;">
 				<v-col v-if="current_question.type !== 'sort'" cols="12" class="d-flex justify-center">
-					<v-fade-transition leave-absolute>
+					<!-- <v-fade-transition leave-absolute> -->
 
 						<img :src="imgUrl" style="max-height: 40vh; max-width: 90%; user-drag: none;" />
-					</v-fade-transition>
+					<!-- </v-fade-transition> -->
 				</v-col>
 
 				<v-col>
 					<v-row>
-						<v-fade-transition group>
+						<!-- <v-fade-transition group> -->
 							<v-col v-for="(answer, index) in current_question.answers" :key="index" :cols="current_question.type && current_question.type === 'sort' ? 12 : 6">
 								<Sort v-if="current_question.type === 'sort'" :answer="answer" :entered="current_question.entered" />
 
 								<Answer v-else @click="select(index)" :answer="answer" :entered="current_question.entered"  class="h-100"/>
 							</v-col>
-						</v-fade-transition>
+						<!-- </v-fade-transition> -->
 					</v-row>
 				</v-col>
 			</v-row>
