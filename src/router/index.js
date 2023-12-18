@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',
@@ -10,7 +10,7 @@ const router = createRouter({
 
     },
     {
-      path: '/content',
+      path: '/eom1',
       name: 'ContentPage',
       component: () => import('../views/ContentPage.vue'),
       children: [
@@ -20,15 +20,16 @@ const router = createRouter({
           component: () => import('@/components/Interactive.vue'),
         },
         {
-          path: '/test',
-          name: 'Test',
-          component: () => import('@/components/Test.vue'),
-        },
-        {
-          path: '/quiz',
+          path: '/eom2',
           name: 'Quiz',
           component: () => import('@/components/Quiz.vue')
         },
+        {
+          path: '/eom3',
+          name: 'Test',
+          component: () => import('@/components/Test.vue'),
+        },
+      
       ]
 
     },

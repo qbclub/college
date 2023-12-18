@@ -65,7 +65,7 @@ let routeTo = (path) => {
             <div class="nav-button-description ">
               <div class="description-buttons">
                 <img src="../assets/icons/advice.svg" class="mb-1" @click="getDialog('advices')">
-                <img src="../assets/icons/play.svg" @click="routeTo('/content')">
+                <img src="../assets/icons/play.svg" @click="routeTo('/eom1')">
               </div>
             </div>
 
@@ -87,7 +87,7 @@ let routeTo = (path) => {
             <div class="nav-button-description ">
               <div class="description-buttons">
                 <img src="../assets/icons/advice.svg" class="mb-1" @click="getDialog('advices')">
-                <img src="../assets/icons/play.svg" @click="routeTo('/quiz')">
+                <img src="../assets/icons/play.svg" @click="routeTo('/eom2')">
               </div>
             </div>
 
@@ -105,7 +105,7 @@ let routeTo = (path) => {
             <div class="nav-button-description">
               <div class="description-buttons">
                 <img src="../assets/icons/advice.svg" class="mb-1" @click="getDialog('advices')">
-                <img src="../assets/icons/play.svg" @click="routeTo('/test')">
+                <img src="../assets/icons/play.svg" @click="routeTo('/eom3')">
               </div>
             </div>
 
@@ -115,12 +115,12 @@ let routeTo = (path) => {
 
       <div class="main-right">
         <div class="fgos-mdk-code">
-          <div class="fgos-title ">ПОП-П {{ content.fgos.code }}</div>
+          <div class="fgos-title ">ФГОС СПО{{ content.fgos.code }}</div>
           <div class="fgos-name">{{ content.fgos.name }}</div>
           <!-- <div class="mdk-title">ПМ {{ content.pm.code }}</div>
-          <div class="mdk-name">{{ content.pm.name }}</div>
+          <div class="mdk-name">{{ content.pm.name }}</div> -->
           <div class="mdk-title">МДКн {{ content.mdk.code }}</div>
-          <div class="mdk-name">{{ content.mdk.name }}</div> -->
+          <div class="mdk-name">{{ content.mdk.name }}</div>
         </div>
       </div>
 
